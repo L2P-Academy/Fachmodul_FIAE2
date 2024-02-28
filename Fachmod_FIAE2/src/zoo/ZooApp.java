@@ -1,8 +1,8 @@
 package zoo;
 
-public class Main {
+public class ZooApp {
 
 	public static void main(String[] args) {
+		
 	}
-
 }
