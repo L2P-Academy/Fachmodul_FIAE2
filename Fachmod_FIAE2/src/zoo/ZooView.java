@@ -1,49 +1,55 @@
 package zoo;
 
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
-import javax.swing.WindowConstants;
+public class ZooView extends JFrame implements ActionListener {
 
-public class ZooView extends JFrame {
-	// Zoo zoo;
+    private JLabel lblBegruessung;
+    private JButton btnEintritt;
+    private JPanel pnlHaupt;
 
-	private JLabel jLabel1 = new JLabel();
+    public ZooView() {
+        // Fenster initialisieren
+        setTitle("Zoo");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-	public ZooView(String title) {
-		// Frame-Initialisierung
-		super(title); // Super(Haupt)-Klasse aufrufen - Bitte an erster Stelle in der Methode lassen.
-		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE); // Zum Beenden wichtig!!!!
-		int frameWidth = 395; // Frame_Breite
-		int frameHeight = 299;// Frame_Höhe
-		setSize(frameWidth, frameHeight); // Setzen der Variablen -Das Fenster brauch eine Größe!
-		Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); // Konstrukt zur Fensterposition *x
-		int x = (d.width - getSize().width) / 2;
-		int y = (d.height - getSize().height) / 2;
-		setLocation(x, y); // x* -bis hier hin
-		Container cp = getContentPane(); // Ein Pane einrichten
-		cp.setLayout(null); // Fenster-Layout festlegen - z.B.: FlowLayout, BorderLayout, etc. oder keins
-		// Anfang Komponenten
+        // Hauptpanel erstellen
+        pnlHaupt = new JPanel();
+        pnlHaupt.setLayout(new BorderLayout());
 
-		jLabel1.setBounds(16, 16, 44, 16); // 1.Zahl: pos(x) 2.Zahl: pos(y) 3.Zahl: Breite 4.Zahl: Höhe
-		jLabel1.setText("Guten Tag!");
-		jLabel1.setFont(new Font("MS Sans Serif", Font.PLAIN, 13)); // Schriftart festlegen
-		cp.add(jLabel1);
-		// Ende Komponenten
+        // Begrüßungslabel erstellen
+        lblBegruessung = new JLabel("Herzlich willkommen im Zoo!");
+        lblBegruessung.setHorizontalAlignment(SwingConstants.CENTER);
 
-		setResizable(false); // Fenster hat keinen Maximierungs-Knopf ->bei(false)
-		setVisible(true); // Damit bekommst du das Fenster erst zu Gesicht !!!
-	}
-	
-	
+        // Button für den Eintritt erstellen
+        btnEintritt = new JButton("Eintritt");
+        btnEintritt.addActionListener(this);
 
-	public ZooView() {
-	}
+        // Panel und Button zum Hauptpanel hinzufügen
+        pnlHaupt.add(lblBegruessung, BorderLayout.NORTH);
+        pnlHaupt.add(btnEintritt, BorderLayout.CENTER);
+
+        // Hauptpanel zum Fenster hinzufügen
+        getContentPane().add(pnlHaupt);
+
+        // Fenster sichtbar machen
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Aktion beim Klicken auf den Button "Eintritt"
+        JOptionPane.showMessageDialog(this, "Viel Spaß im Zoo!");
+    }
+
+    public static void main(String[] args) {
+        // ZooView-Instanz erstellen und starten
+        new ZooView();
+    }
+
 
 	public void displayAnimals() {
 	}
