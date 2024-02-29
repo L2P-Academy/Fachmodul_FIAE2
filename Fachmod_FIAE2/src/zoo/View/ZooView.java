@@ -1,4 +1,4 @@
-package zoo;
+package zoo.View;
 
 import javax.swing.*;
 import java.awt.*;

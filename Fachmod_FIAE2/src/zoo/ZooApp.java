@@ -3,6 +3,10 @@ package zoo;
 import javax.swing.UIManager;
 import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
+import zoo.Controller.ZooController;
+import zoo.Model.ZooModel;
+import zoo.View.ZooView;
+
 public class ZooApp {
 
 	public static void main(String[] args) {
@@ -15,7 +19,7 @@ public class ZooApp {
 			e.printStackTrace();
 		}
 		
-		Zoo zoo = new Zoo();
+		ZooModel zooModel = new ZooModel();
 		ZooView zooView = new ZooView();
 		ZooController zooController = new ZooController();
 		

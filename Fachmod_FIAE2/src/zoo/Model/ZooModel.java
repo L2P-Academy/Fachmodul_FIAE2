@@ -1,12 +1,12 @@
-package zoo;
+package zoo.Model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Zoo {
+public class ZooModel {
     private List<Animal> animals;
     
-    public Zoo() {
+    public ZooModel() {
         animals = new ArrayList<>();
     }
 

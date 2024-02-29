@@ -1,4 +1,4 @@
-package zoo;
+package zoo.Model;
 
 import java.util.List;
 
