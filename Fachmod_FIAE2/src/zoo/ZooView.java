@@ -12,9 +12,11 @@ public class ZooView extends JFrame implements ActionListener {
 
     public ZooView() {
         // Fenster initialisieren
-        setTitle("Zoo");
-        setSize(400, 300);
+        setTitle("Zoo Eintritt");
+        setSize(1200, 900);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      
+        
 
         // Hauptpanel erstellen
         pnlHaupt = new JPanel();
@@ -30,7 +32,7 @@ public class ZooView extends JFrame implements ActionListener {
 
         // Panel und Button zum Hauptpanel hinzufügen
         pnlHaupt.add(lblBegruessung, BorderLayout.NORTH);
-        pnlHaupt.add(btnEintritt, BorderLayout.CENTER);
+        pnlHaupt.add(btnEintritt, BorderLayout.SOUTH);
 
         // Hauptpanel zum Fenster hinzufügen
         getContentPane().add(pnlHaupt);
@@ -43,11 +45,6 @@ public class ZooView extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // Aktion beim Klicken auf den Button "Eintritt"
         JOptionPane.showMessageDialog(this, "Viel Spaß im Zoo!");
-    }
-
-    public static void main(String[] args) {
-        // ZooView-Instanz erstellen und starten
-        new ZooView();
     }
 
 
