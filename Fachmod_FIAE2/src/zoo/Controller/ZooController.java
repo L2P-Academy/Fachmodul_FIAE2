@@ -4,10 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import zoo.Model.Animal;
+import zoo.Model.Animal.NutritionType;
 import zoo.Model.ZooModel;
 import zoo.View.ZooView;
-
-import java.lang.Math;
 
 public class ZooController {
 	private List<String> ticketType;
@@ -25,8 +24,8 @@ public class ZooController {
 			
 	}
 
-	public void addAnimal(String name, int age, String species, List<String> type) {
-			Animal animal = new Animal(name, age, species, type); //initialisieren eines neuen Objekts animal
+	public void addAnimal(String name, int age, String species, List<NutritionType> nutritionTypes) {
+			Animal animal = new Animal(name, age, species, nutritionTypes); //initialisieren eines neuen Objekts animal
 			zooModel.addAnimal(animal);
 			zooView.displayAnimals();
 	}
