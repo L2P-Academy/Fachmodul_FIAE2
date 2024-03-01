@@ -5,7 +5,7 @@ import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
 import zoo.Controller.ZooController;
 import zoo.Model.ZooModel;
-import zoo.View.ZooView;
+import zoo.View.*;
 
 public class ZooApp {
 
@@ -21,6 +21,11 @@ public class ZooApp {
 		
 		ZooModel zooModel = new ZooModel();
 		ZooView zooView = new ZooView();
+		
+		// Hier kann zum Testen die View angepasst werden, die bei Start angezeigt wird - dazu die ZooView auskommentieren:
+		
+		// AnimalView animalView = new AnimalView();
+		
 		ZooController zooController = new ZooController();
 		
 		// Intialisierung

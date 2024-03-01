@@ -3,6 +3,8 @@ package zoo;
 import java.util.ArrayList;
 import java.util.List;
 
+import zoo.Model.Animal;
+
 public class ZooModel {
     private List<Animal> animals;
     

@@ -5,16 +5,22 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Animal {
+	
+	// Ernährungspräferenzen
+	public enum NutritionType {
+		Fleischfresser, Pflanzenfresser, Allesfresser
+	}
+
     private String name;
     private int age;
     private String species;
-    private List<String> type;
+    private List<NutritionType> nutritionTypes;
 
-    public Animal(String name, int age, String species, List<String> type) {
+    public Animal(String name, int age, String species, List<NutritionType> nutritionTypes) {
         this.name = name;
         this.age = age;
         this.species = species;
-        this.type = type;
+        this.nutritionTypes = nutritionTypes;
     }
 
     public String getName() {
@@ -41,25 +47,25 @@ public class Animal {
         this.species = species;
     }
 
-    public List<String> getType() {
-        return type;
+    public List<NutritionType> getType() {
+        return nutritionTypes;
     }
 
-    public void setType(List<String> type) {
-        this.type = type;
+    public void setType(List<NutritionType> type) {
+        this.nutritionTypes = type;
     }
 
-    public void addType(String preference) {
-        this.type.add(preference);
+    public void addType(NutritionType preference) {
+        this.nutritionTypes.add(preference);
     }
 
     public static List<Animal> createAnimals() {
         List<Animal> animals = new ArrayList<>();
-        animals.add(new Animal("Löwe", 5, "Löwe", Arrays.asList("Fleischfresser")));
-        animals.add(new Animal("Elefant", 10, "Elefant", Arrays.asList("Pflanzenfresser")));
-        animals.add(new Animal("Giraffe", 8, "Giraffe", Arrays.asList("Pflanzenfresser")));
-        animals.add(new Animal("Affe", 4, "Affe", Arrays.asList("Allesfresser")));
-        animals.add(new Animal("Zebra", 3, "Zebra", Arrays.asList("Pflanzenfresser")));
+        animals.add(new Animal("Simba", 5, "Löwe", Arrays.asList(NutritionType.Fleischfresser)));
+        animals.add(new Animal("Jumbo", 10, "Elefant", Arrays.asList(NutritionType.Pflanzenfresser)));
+        animals.add(new Animal("Giselle", 8, "Giraffe", Arrays.asList(NutritionType.Pflanzenfresser)));
+        animals.add(new Animal("Donkey Kong", 4, "Affe", Arrays.asList(NutritionType.Allesfresser)));
+        animals.add(new Animal("Zara", 3, "Zebra", Arrays.asList(NutritionType.Pflanzenfresser)));
         return animals;
     }
 }
