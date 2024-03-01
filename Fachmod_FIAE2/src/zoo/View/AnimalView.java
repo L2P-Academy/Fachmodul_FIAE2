@@ -16,7 +16,7 @@ public class AnimalView extends JFrame implements ActionListener{
 	
 	public AnimalView() {
 		setTitle("Tiergehege");
-		setSize(1200, 900);
+		setSize(1400, 1100);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		lblTiergehege = new JLabel("Hier gibt es bald Tiere!");

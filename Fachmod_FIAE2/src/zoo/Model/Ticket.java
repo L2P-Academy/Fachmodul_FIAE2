@@ -28,7 +28,7 @@ public class Ticket {
         return type;
     }
 
-    public void setArt(String type) {
+    public void setType(String type) {
         this.type = type;
     }
 
