@@ -17,14 +17,17 @@ import org.xml.sax.SAXException;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
+import zoo.Model.Ticket;
 
 public class XMLController {
-
-	String datei = "Dateipfad/Datei.xml";
-
+	
+	Ticket ticket;
+	String datei = "/data/TicketList.xml";
+	
+	
 	public void xmlRead() {
 
-		// Warum "newInstance" und nicht new DocumentBuilderFactory
+		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
@@ -48,8 +51,41 @@ public class XMLController {
 		DocumentBuilder builder;
 		
 		try {
+			// Dokument erstellen
 			builder = factory.newDocumentBuilder();
 			Document document = builder.newDocument();
+			
+			//TODO: Logic um Nodes zu schreiben
+			//Erstellen des Root-Elements
+			Element rootElement = document.createElement("Tickets");
+			
+			//Anhängen der einzelnen Tickets 
+			document.appendChild(rootElement);
+			Element ticketElement = document.createElement("Ticket");
+			
+			Element ticketIDElement = document.createElement("TicketID");
+			
+			ticketIDElement.appendChild(document.createTextNode(String.valueOf(ticket.getTicketID())));
+			ticketElement.appendChild(ticketIDElement);
+			
+			Element typeElement = document.createElement("Type");
+			typeElement.appendChild(document.createTextNode(ticket.getType()));
+			ticketElement.appendChild(typeElement);
+						
+			Element priceElement = document.createElement("Price");
+			priceElement.appendChild(document.createTextNode(String.valueOf(ticket.getPrice())));
+			ticketElement.appendChild(priceElement);
+			
+			Element dateElement = document.createElement("Date");
+			dateElement.appendChild(document.createTextNode(String.valueOf(ticket.getDate())));
+			ticketElement.appendChild(dateElement);
+			
+			rootElement.appendChild(ticketElement);
+			
+			
+			
+			
+			// Dokument in XML transfomieren und speichern
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(document);
@@ -65,10 +101,10 @@ public class XMLController {
 		
 		
 		
-		//TODO: Logic um Nodes zu schreiben
-		
-		//TODO: Transformer um Datei zu schreiben
 
+		
+		
+	
 		
 	}
 
