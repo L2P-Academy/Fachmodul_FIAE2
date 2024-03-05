@@ -186,9 +186,6 @@ public class ZooView extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(this, "Willkommen im Zoo!");
 	}
 
-	public void displayAnimals() {
-	}
-
 	private String getSelectedTicketType() {
 
 		if (kinderButton.isSelected()) {
@@ -211,6 +208,8 @@ public class ZooView extends JFrame implements ActionListener {
 			return 15.0;
 		default:
 			return 0.0; // Rückgabe von 0.0, wenn der Tickettyp nicht erkannt wird
+		}
+	}
 
     public void displayAnimals() {
     }
