@@ -9,30 +9,21 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.concurrent.Flow;
 
 public class ZooView extends JFrame implements ActionListener {
 
 	private JMenuBar menubar;
-	private JMenu startMenu;
-	private JMenu ansichtMenu;
-	private JMenuItem verkaufsuebersichtMenuItem;
-	private JMenuItem beendenMenuItem;
-	private JMenuItem minimierenMenuItem;
-	private JMenuItem maximierenMenuItem;
-	private JMenuItem standartMenuItem;
+	private JMenu startMenu, ansichtMenu;
+	private JMenuItem verkaufsuebersichtMenuItem, beendenMenuItem, minimierenMenuItem, maximierenMenuItem, standardMenuItem;
 	private JButton btnEintritt;
+	private JRadioButton kinderButton, erwachseneButton, seniorenButton;
 	private JPanel pnlHaupt;
-	private JPanel anzahlPanel;
-	private JPanel dauerPanel;
 	private ImageIcon imageIcon;
 	private String imgLogoPath;
 	private JLabel lblImageWelcome;
 	private int scaledWidth, scaledHeight;
-	private JComboBox<Integer> anzahlComboBox;
-	private JComboBox<Integer> dauerComboBox;
+	private JComboBox<Integer> anzahlComboBox, dauerComboBox;
 	private SalesController salesController;
-	private JRadioButton kinderButton, erwachseneButton, seniorenButton;
 	private Date date;
 
 	public ZooView() {
@@ -52,8 +43,9 @@ public class ZooView extends JFrame implements ActionListener {
 		beendenMenuItem = new JMenuItem("Beenden");
 		minimierenMenuItem = new JMenuItem("Minimieren");
 		maximierenMenuItem = new JMenuItem("Maximieren");
-		standartMenuItem = new JMenuItem("Standartgröße");
-
+		standardMenuItem = new JMenuItem("Standardgröße");
+		
+		//ActinListener für die Menübar
 		beendenMenuItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -79,7 +71,7 @@ public class ZooView extends JFrame implements ActionListener {
 			}
 		});
 
-		standartMenuItem.addActionListener(new ActionListener() {
+		standardMenuItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent s) {
@@ -89,11 +81,12 @@ public class ZooView extends JFrame implements ActionListener {
 			}
 		});
 
+		// Hinzufügen der Menüitems und Menüs zur Menubar
 		startMenu.add(verkaufsuebersichtMenuItem);
 		startMenu.add(beendenMenuItem);
 		ansichtMenu.add(minimierenMenuItem);
 		ansichtMenu.add(maximierenMenuItem);
-		ansichtMenu.add(standartMenuItem);
+		ansichtMenu.add(standardMenuItem);
 		menubar.add(startMenu);
 		menubar.add(ansichtMenu);
 		setJMenuBar(menubar);
@@ -112,9 +105,6 @@ public class ZooView extends JFrame implements ActionListener {
 		Image scaledImage = originalImage.getScaledInstance(scaledWidth, scaledHeight, Image.SCALE_SMOOTH);
 		ImageIcon scaledIcon = new ImageIcon(scaledImage);
 		lblImageWelcome = new JLabel(scaledIcon);
-
-		// Trennlinie einfügen
-		JSeparator separator = new JSeparator();
 
 		// Radiobuttons für Ticketverkauf deklarieren
 		kinderButton = new JRadioButton("Kinder");
@@ -181,11 +171,10 @@ public class ZooView extends JFrame implements ActionListener {
 		// Panel und Button zum Hauptpanel hinzufügen
 		pnlHaupt.add(lblImageWelcome, BorderLayout.NORTH);
 		pnlHaupt.add(labelRadioPanel, BorderLayout.WEST);
-		pnlHaupt.add(lblDauer);
+		pnlHaupt.add(lblDauer, BorderLayout.CENTER);
 		pnlHaupt.add(dauerPanel,BorderLayout.CENTER);
 		pnlHaupt.add(anzahlPanel, BorderLayout.EAST);
 		pnlHaupt.add(btnEintritt, BorderLayout.SOUTH);
-		pnlHaupt.add(separator);
 
 		// Hauptpanel zum Fenster hinzufügen
 		getContentPane().add(pnlHaupt);
