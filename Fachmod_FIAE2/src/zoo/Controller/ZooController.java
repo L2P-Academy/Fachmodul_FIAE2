@@ -10,18 +10,13 @@ import zoo.View.ZooView;
 
 public class ZooController {
 	private List<String> ticketType;
-	private Double ticketPrice;
-	private Date ticketDate;
 	private ZooModel zooModel;				//Variable zoo initialisieren
 	private ZooView zooView; 		//Variable zooView initialisieren
 	
-	SalesController salesController = new SalesController();
 	
 	public void zooController(ZooModel zooModel,ZooView zooView) {
 		this.zooModel = zooModel; 
 		this.zooView = zooView;
-		
-			
 	}
 
 	public void addAnimal(String name, int age, String species, List<NutritionType> nutritionTypes) {
@@ -30,7 +25,5 @@ public class ZooController {
 			zooView.displayAnimals();
 	}
 	
-	public void sellTicket(List<String> ticketType, Double ticketPrice, Date ticketDate) {
-		salesController.sellTicket(ticketType, ticketPrice, ticketDate);
-	}
+
 }

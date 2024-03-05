@@ -7,13 +7,13 @@ import java.util.List;
 public class Ticket {
 	private int ticketID;
 	private double price;
-	private List<String> type;
+	private String ticketType;
 	private Date date;
 	
-	public Ticket (List<String> ticketType, Double ticketPrice, Date ticketDate) {
+	public Ticket (String ticketType, Double ticketPrice, Date ticketDate) {
 		//TODO: TicketID beschaffen
 		this.ticketID = getTicketID();
-		this.type = ticketType;
+		this.ticketType = ticketType;
 		this.price = ticketPrice;
 		this.date = Calendar.getInstance().getTime();
 		}
@@ -26,12 +26,12 @@ public class Ticket {
         this.ticketID = ticketID;
     }
 
-    public List<String> getType() {
-        return type;
+    public String getType() {
+        return ticketType;
     }
 
-    public void setType(List<String> type) {
-        this.type = type;
+    public void setType(String type) {
+        this.ticketType = type;
     }
 
     public double getPrice() {

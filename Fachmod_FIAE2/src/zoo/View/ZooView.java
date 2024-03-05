@@ -1,8 +1,14 @@
 package zoo.View;
 
 import javax.swing.*;
+
+import zoo.Controller.SalesController;
+import zoo.Model.Ticketsystem;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ZooView extends JFrame implements ActionListener {
 
@@ -22,9 +28,13 @@ public class ZooView extends JFrame implements ActionListener {
     private JLabel lblImageWelcome;
     private int scaledWidth, scaledHeight;
     private JComboBox<Integer> anzahlComboBox;
+    private SalesController salesController;
+	  private JRadioButton kinderButton, erwachseneButton, seniorenButton;
+	  private Date date;
     
 
     public ZooView() {
+        salesController = new SalesController(new Ticketsystem());
         // Fenster initialisieren
         setTitle("Zoo Eintritt");
         setSize(1200, 900);
@@ -107,9 +117,9 @@ public class ZooView extends JFrame implements ActionListener {
         JSeparator separator = new JSeparator();
         
         // Radiobuttons für Ticketverkauf deklarieren
-        JRadioButton kinderButton = new JRadioButton("Kinder");
-        JRadioButton erwachseneButton = new JRadioButton("Erwachsene");
-        JRadioButton seniorenButton = new JRadioButton("Senioren");
+		    kinderButton = new JRadioButton("Kinder");
+		    erwachseneButton = new JRadioButton("Erwachsene");
+		    seniorenButton = new JRadioButton("Senioren");
         
         // RadioButtons der ButtonsGroup hinzufügen
         ButtonGroup buttonGroup = new ButtonGroup();
@@ -146,7 +156,7 @@ public class ZooView extends JFrame implements ActionListener {
         anzahlPanel.add(anzahlComboBox);
         anzahlPanel.add(lblAnzahlTickets, BorderLayout.WEST);
         anzahlPanel.add(anzahlComboBox, BorderLayout.CENTER);
-        anzahlPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        anzahlPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 150));
 
         // Button für den Eintritt erstellen -> Anpassen der Größe, Hintergrund, Vordergrund, Schriftfarbe, Art usw.
         btnEintritt = new JButton("Eintritt");
@@ -170,11 +180,37 @@ public class ZooView extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // Aktion beim Klicken auf den Button "Eintritt"
-        JOptionPane.showMessageDialog(this, "Viel Spaß im Zoo!");
-    }
+@Override
+	public void actionPerformed(ActionEvent e) {
+		salesController.sellTicket(getSelectedTicketType(), getTicketPriceForType(getSelectedTicketType()), Calendar.getInstance().getTime());
+		JOptionPane.showMessageDialog(this, "Willkommen im Zoo!");
+	}
+
+	public void displayAnimals() {
+	}
+
+	private String getSelectedTicketType() {
+
+		if (kinderButton.isSelected()) {
+			return "Kinder";
+		} else if (erwachseneButton.isSelected()) {
+			return "Erwachsene";
+		} else if (seniorenButton.isSelected()) {
+			return "Senioren";
+		}
+		return "";
+	}
+
+	private Double getTicketPriceForType(String ticketType) {
+		switch (ticketType) {
+		case "Kinder":
+			return 5.0;
+		case "Erwachsene":
+			return 20.0;
+		case "Senioren":
+			return 15.0;
+		default:
+			return 0.0; // Rückgabe von 0.0, wenn der Tickettyp nicht erkannt wird
 
     public void displayAnimals() {
     }

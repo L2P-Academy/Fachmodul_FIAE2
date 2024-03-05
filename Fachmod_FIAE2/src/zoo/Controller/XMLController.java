@@ -69,7 +69,7 @@ public class XMLController {
 			ticketElement.appendChild(ticketIDElement);
 			
 			Element typeElement = document.createElement("Type");
-			typeElement.appendChild(document.createTextNode(ticket.getType().get(0)));
+			typeElement.appendChild(document.createTextNode(ticket.getType()));
 			ticketElement.appendChild(typeElement);
 						
 			Element priceElement = document.createElement("Price");
