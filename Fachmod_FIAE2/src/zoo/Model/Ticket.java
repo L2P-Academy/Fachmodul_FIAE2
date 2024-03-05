@@ -2,17 +2,19 @@ package zoo.Model;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Ticket {
 	private int ticketID;
 	private double price;
-	private String type;
+	private List<String> type;
 	private Date date;
 	
-	public Ticket (int ticketID, String type, double price) {
-		this.ticketID = ticketID;
-		this.type = type;
-		this.price = price;
+	public Ticket (List<String> ticketType, Double ticketPrice, Date ticketDate) {
+		//TODO: TicketID beschaffen
+		this.ticketID = getTicketID();
+		this.type = ticketType;
+		this.price = ticketPrice;
 		this.date = Calendar.getInstance().getTime();
 		}
 	
@@ -24,11 +26,11 @@ public class Ticket {
         this.ticketID = ticketID;
     }
 
-    public String getType() {
+    public List<String> getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(List<String> type) {
         this.type = type;
     }
 
