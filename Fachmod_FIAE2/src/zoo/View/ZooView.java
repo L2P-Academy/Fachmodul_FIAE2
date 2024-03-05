@@ -6,19 +6,39 @@ import java.awt.event.*;
 
 public class ZooView extends JFrame implements ActionListener {
 
+	private JMenuBar menubar;
+	private JMenu dateiMenu;
+    private JMenuItem beendenMenuItem;
     private JButton btnEintritt;
     private JPanel pnlHaupt;
+    private JPanel anzahlPanel;
     private ImageIcon imageIcon;
     private String imgLogoPath;
     private JLabel lblImageWelcome;
     private int scaledWidth, scaledHeight;
+    private JComboBox<Integer> anzahlComboBox;
+    
 
     public ZooView() {
         // Fenster initialisieren
         setTitle("Zoo Eintritt");
-        setSize(1400, 1100);
+        setSize(1200, 900);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        imgLogoPath = "res/img/Zoo_Logo.png";        
+        imgLogoPath = "res/img/Zoo_Logo.png";
+        
+        // Menubar erstellen
+        menubar = new JMenuBar();
+        dateiMenu = new JMenu("Datei");
+        beendenMenuItem = new JMenuItem("Beenden");
+        beendenMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        dateiMenu.add(beendenMenuItem);
+        menubar.add(dateiMenu);
+        setJMenuBar(menubar);
 
         // Hauptpanel erstellen
         pnlHaupt = new JPanel();
@@ -51,7 +71,7 @@ public class ZooView extends JFrame implements ActionListener {
         
         // Panel für Radiobuttons erstellen
         JPanel radioPanel = new JPanel();
-        radioPanel.setLayout(new GridLayout(1, 3));
+        radioPanel.setLayout(new GridLayout(3, 1));
         radioPanel.add(kinderButton);
         radioPanel.add(erwachseneButton);
         radioPanel.add(seniorenButton);
@@ -64,30 +84,34 @@ public class ZooView extends JFrame implements ActionListener {
         labelRadioPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         labelRadioPanel.add(lblTicketart);
         labelRadioPanel.add(radioPanel);
-        labelRadioPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 0, 0));
+        labelRadioPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 150));
         
         // Label für die Anzahl der Tickets
         JLabel lblAnzahlTickets = new JLabel("Anzahl der Tickets: ");
         
-        // Eingabefeld für die Ticketanzahl
-        JTextField txtAnzahlTickets = new JTextField(10);
-        
         // Panel für das Label und das Eingabefeld erstellen
-        JPanel ticketAnzahlPanel = new JPanel(new BorderLayout());
-        ticketAnzahlPanel.add(lblAnzahlTickets, BorderLayout.WEST);
-        ticketAnzahlPanel.add(txtAnzahlTickets, BorderLayout.CENTER);
-        ticketAnzahlPanel.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 20));
+        JPanel anzahlPanel = new JPanel(new BorderLayout());
+        anzahlComboBox = new JComboBox<>();
+        for (int i = 1; i <= 10; i++) {
+            anzahlComboBox.addItem(i);
+        }
+        anzahlPanel.add(anzahlComboBox);
+        anzahlPanel.add(lblAnzahlTickets, BorderLayout.WEST);
+        anzahlPanel.add(anzahlComboBox, BorderLayout.CENTER);
+        anzahlPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         // Button für den Eintritt erstellen -> Anpassen der Größe, Hintergrund, Vordergrund, Schriftfarbe, Art usw.
         btnEintritt = new JButton("Eintritt");
         btnEintritt.setMaximumSize(new Dimension(200, Integer.MAX_VALUE));
         btnEintritt.addActionListener(this);
+        btnEintritt.setBackground(Color.GREEN.darker());
+        btnEintritt.setFont(new Font("Monospaced", Font.BOLD, 20));
 
 
         // Panel und Button zum Hauptpanel hinzufügen
         pnlHaupt.add(lblImageWelcome, BorderLayout.NORTH);
         pnlHaupt.add(labelRadioPanel, BorderLayout.WEST);
-        pnlHaupt.add(ticketAnzahlPanel, BorderLayout.EAST);
+        pnlHaupt.add(anzahlPanel, BorderLayout.EAST);
         pnlHaupt.add(btnEintritt, BorderLayout.SOUTH);
         pnlHaupt.add(separator);
 
