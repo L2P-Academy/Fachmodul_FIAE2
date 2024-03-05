@@ -7,8 +7,13 @@ import java.awt.event.*;
 public class ZooView extends JFrame implements ActionListener {
 
 	private JMenuBar menubar;
-	private JMenu dateiMenu;
+	private JMenu startMenu;
+	private JMenu ansichtMenu;
+	private JMenuItem verkaufsuebersichtMenuItem;
     private JMenuItem beendenMenuItem;
+    private JMenuItem minimierenMenuItem;
+    private JMenuItem maximierenMenuItem;
+    private JMenuItem standartMenuItem;
     private JButton btnEintritt;
     private JPanel pnlHaupt;
     private JPanel anzahlPanel;
@@ -28,17 +33,60 @@ public class ZooView extends JFrame implements ActionListener {
         
         // Menubar erstellen
         menubar = new JMenuBar();
-        dateiMenu = new JMenu("Datei");
+        startMenu = new JMenu("Start");
+        ansichtMenu = new JMenu("Ansicht");
+        verkaufsuebersichtMenuItem = new JMenuItem("Verkaufsübersicht");
+        verkaufsuebersichtMenuItem.addActionListener(null);
         beendenMenuItem = new JMenuItem("Beenden");
+        minimierenMenuItem = new JMenuItem("Minimieren");
+        maximierenMenuItem = new JMenuItem("Maximieren");
+        standartMenuItem = new JMenuItem("Standartgröße");
+        
+        
         beendenMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-        dateiMenu.add(beendenMenuItem);
-        menubar.add(dateiMenu);
+        
+        minimierenMenuItem.addActionListener(new ActionListener() {
+        	@Override
+            public void actionPerformed(ActionEvent mi) {
+        		
+        		setState(JFrame.ICONIFIED);
+            }
+        });
+        
+        maximierenMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent ma) {
+				
+				setExtendedState(JFrame.MAXIMIZED_BOTH);
+				
+			}
+		});
+        
+        standartMenuItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent s) {
+				
+				setSize(1200, 900);
+				
+			}
+		});
+        
+        startMenu.add(verkaufsuebersichtMenuItem);
+        startMenu.add(beendenMenuItem);
+        ansichtMenu.add(minimierenMenuItem);
+        ansichtMenu.add(maximierenMenuItem);
+        ansichtMenu.add(standartMenuItem);
+        menubar.add(startMenu);
+        menubar.add(ansichtMenu);
         setJMenuBar(menubar);
+        
 
         // Hauptpanel erstellen
         pnlHaupt = new JPanel();
