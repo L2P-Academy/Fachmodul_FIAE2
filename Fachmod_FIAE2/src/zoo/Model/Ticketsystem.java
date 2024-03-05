@@ -22,7 +22,7 @@ public class Ticketsystem {
 	        return ticketList;
 	    }
 
-	    public void addTicket(List<String> ticketType, Double ticketPrice, Date ticketDate) {
+	    public void addTicket(String ticketType, Double ticketPrice, Date ticketDate) {
 	        Ticket newTicket = new Ticket(ticketType, ticketPrice, ticketDate);
 	    	ticketList.add(newTicket);
 	    }
