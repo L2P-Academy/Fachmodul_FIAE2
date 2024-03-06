@@ -25,7 +25,9 @@ public class ZooView extends JFrame implements ActionListener {
 	private JComboBox<String> dauerComboBox;
 	private JComboBox<Integer> anzahlComboBox;
 	private SalesController salesController;
-	private Date date; 
+	private Date date;
+	private int ticketAnzahl;
+	private int besuchsdauer;
 
 	public ZooView() {
 		salesController = new SalesController(new Ticketsystem());
@@ -216,8 +218,10 @@ public class ZooView extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		salesController.sellTicket(getSelectedTicketType(), getTicketPriceForType(getSelectedTicketType()),
 				Calendar.getInstance().getTime());
-		
-		JOptionPane.showMessageDialog(this, "Willkommen im Zoo!" + getSelectedTicketType() ); }
+		ticketAnzahl = (int) anzahlComboBox.getSelectedItem();
+		besuchsdauer = (int) dauerComboBox.getSelectedItem();
+		JOptionPane.showMessageDialog(this, salesController.preisBerechnung(ticketAnzahl, getTicketPriceForType(getSelectedTicketType()), besuchsdauer) );
+	}
 		
 	private String getSelectedTicketType() {
 
