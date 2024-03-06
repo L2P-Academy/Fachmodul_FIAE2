@@ -13,8 +13,8 @@ import java.util.Date;
 public class ZooView extends JFrame implements ActionListener {
 
 	private JMenuBar menubar;
-	private JMenu startMenu, ansichtMenu;
-	private JMenuItem verkaufsuebersichtMenuItem, beendenMenuItem, minimierenMenuItem, maximierenMenuItem, standardMenuItem;
+	private JMenu startMenu, ansichtMenu, zooverwaltungMenu;
+	private JMenuItem verkaufsuebersichtMenuItem, beendenMenuItem, minimierenMenuItem, maximierenMenuItem, standardMenuItem, listeTiereMenuItem, verkaufteTicketsMenuItem;
 	private JButton btnEintritt;
 	private JRadioButton kinderButton, erwachseneButton, seniorenButton;
 	private JPanel pnlHaupt;
@@ -22,7 +22,8 @@ public class ZooView extends JFrame implements ActionListener {
 	private String imgLogoPath;
 	private JLabel lblImageWelcome;
 	private int scaledWidth, scaledHeight;
-	private JComboBox<Integer> anzahlComboBox, dauerComboBox;
+	private JComboBox<String> dauerComboBox;
+	private JComboBox<Integer> anzahlComboBox;
 	private SalesController salesController;
 	private Date date;
 	private int ticketAnzahl;
@@ -40,12 +41,15 @@ public class ZooView extends JFrame implements ActionListener {
 		menubar = new JMenuBar();
 		startMenu = new JMenu("Start");
 		ansichtMenu = new JMenu("Ansicht");
+		zooverwaltungMenu = new JMenu("Zooverwaltung");
 		verkaufsuebersichtMenuItem = new JMenuItem("Verkaufsübersicht");
 		verkaufsuebersichtMenuItem.addActionListener(null);
 		beendenMenuItem = new JMenuItem("Beenden");
 		minimierenMenuItem = new JMenuItem("Minimieren");
 		maximierenMenuItem = new JMenuItem("Maximieren");
 		standardMenuItem = new JMenuItem("Standardgröße");
+		listeTiereMenuItem = new JMenuItem("Liste der Tiere");
+		verkaufteTicketsMenuItem = new JMenuItem("Verkaufte Tickets");
 		
 		//ActinListener für die Menübar
 		beendenMenuItem.addActionListener(new ActionListener() {
@@ -82,6 +86,24 @@ public class ZooView extends JFrame implements ActionListener {
 
 			}
 		});
+		
+		listeTiereMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent l) {
+
+				AnimalView animalView = new AnimalView();
+			}
+		});
+		
+		verkaufteTicketsMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent l) {
+
+				TicketsSold ticketsSold = new TicketsSold();
+			}
+		});
 
 		// Hinzufügen der Menüitems und Menüs zur Menubar
 		startMenu.add(verkaufsuebersichtMenuItem);
@@ -89,9 +111,13 @@ public class ZooView extends JFrame implements ActionListener {
 		ansichtMenu.add(minimierenMenuItem);
 		ansichtMenu.add(maximierenMenuItem);
 		ansichtMenu.add(standardMenuItem);
+		zooverwaltungMenu.add(listeTiereMenuItem);
+		zooverwaltungMenu.add(verkaufteTicketsMenuItem);
 		menubar.add(startMenu);
 		menubar.add(ansichtMenu);
+		menubar.add(zooverwaltungMenu);
 		setJMenuBar(menubar);
+		
 
 		// Hauptpanel erstellen
 		pnlHaupt = new JPanel();
@@ -112,6 +138,8 @@ public class ZooView extends JFrame implements ActionListener {
 		kinderButton = new JRadioButton("Kinder");
 		erwachseneButton = new JRadioButton("Erwachsene");
 		seniorenButton = new JRadioButton("Senioren");
+		
+		erwachseneButton.setSelected(true);
 
 		// RadioButtons der ButtonsGroup hinzufügen
 		ButtonGroup buttonGroup = new ButtonGroup();
@@ -150,17 +178,18 @@ public class ZooView extends JFrame implements ActionListener {
 		anzahlPanel.add(anzahlComboBox, BorderLayout.CENTER);
 		anzahlPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 150));
 		
-		//Dropdownmenu für Dauer des aufenthaltes
+		//Dropdownmenu für Dauer des Aufenthalts
+		String dauerStunden = " Std.";
 		JPanel dauerPanel = new JPanel(new BorderLayout());
 		dauerComboBox = new JComboBox<>();
 		for (int i = 2; i <= 6; i+=2) {
-			dauerComboBox.addItem(i);
-		}
+			dauerComboBox.addItem(i + dauerStunden);
+			}
+		
 		JLabel lblDauer = new JLabel("Dauer des Aufenthalts:");
 		dauerPanel.add(lblDauer, BorderLayout.CENTER);
 		dauerPanel.add(dauerComboBox, BorderLayout.CENTER);
 		dauerPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 150));
-
 		
 		// Button für den Eintritt erstellen -> Anpassen der Größe, Hintergrund,
 		// Vordergrund, Schriftfarbe, Art usw.
@@ -193,7 +222,7 @@ public class ZooView extends JFrame implements ActionListener {
 		besuchsdauer = (int) dauerComboBox.getSelectedItem();
 		JOptionPane.showMessageDialog(this, salesController.preisBerechnung(ticketAnzahl, getTicketPriceForType(getSelectedTicketType()), besuchsdauer) );
 	}
-
+		
 	private String getSelectedTicketType() {
 
 		if (kinderButton.isSelected()) {
