@@ -27,7 +27,7 @@ public class ZooView extends JFrame implements ActionListener {
 	private SalesController salesController;
 	private Date date;
 	private int ticketAnzahl;
-	private int besuchsdauer;
+	private String besuchsdauer;
 
 	public ZooView() {
 		salesController = new SalesController(new Ticketsystem());
@@ -219,8 +219,13 @@ public class ZooView extends JFrame implements ActionListener {
 		salesController.sellTicket(getSelectedTicketType(), getTicketPriceForType(getSelectedTicketType()),
 				Calendar.getInstance().getTime());
 		ticketAnzahl = (int) anzahlComboBox.getSelectedItem();
-		besuchsdauer = (int) dauerComboBox.getSelectedItem();
-		JOptionPane.showMessageDialog(this, salesController.preisBerechnung(ticketAnzahl, getTicketPriceForType(getSelectedTicketType()), besuchsdauer) );
+		besuchsdauer = (String) dauerComboBox.getSelectedItem();
+		
+		// Umwandlung der Besuchsdauer zurück in Integer für spätere Berechnung
+		besuchsdauer = besuchsdauer.replace(" Std.", "");
+		int dauer = Integer.parseInt(besuchsdauer);
+		
+		JOptionPane.showMessageDialog(this, salesController.preisBerechnung(ticketAnzahl, getTicketPriceForType(getSelectedTicketType()), dauer) );
 	}
 		
 	private String getSelectedTicketType() {
