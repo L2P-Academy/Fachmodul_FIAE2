@@ -13,20 +13,16 @@ public class TicketsSold extends JFrame implements ActionListener {
 	private JMenuItem verkaufsuebersichtMenuItem, beendenMenuItem, minimierenMenuItem, maximierenMenuItem, standardMenuItem, listeTiereMenuItem, verkaufteTicketsMenuItem;
 	private JPanel pnlNorth;
 	private JPanel pnlSouth;
+	private JPanel pnlMain;
 	private JLabel lblNorth;
 	private JLabel lblSouth;
-	private JPanel pnlVerkaufteTickets;
 	private JTable ticketTable;
 	
 
 	public TicketsSold() {
 		setTitle("Verkaufte Tickets");
 		setSize(1200, 900);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
-		pnlVerkaufteTickets = new JPanel();
-		pnlVerkaufteTickets.setLayout(new BorderLayout());
-		
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	
 	// Menubar erstellen
 	menubar = new JMenuBar();
@@ -110,7 +106,10 @@ public class TicketsSold extends JFrame implements ActionListener {
 	menubar.add(zooverwaltungMenu);
 	setJMenuBar(menubar);
 	
-	// Panels innen erstellen und ins Hauptpanel fügen
+	// Panels erstellen
+	pnlMain = new JPanel();
+	pnlMain.setLayout(new BorderLayout());
+	
 	pnlNorth = new JPanel();
 	pnlNorth.setLayout(new BorderLayout());
 	
@@ -120,40 +119,29 @@ public class TicketsSold extends JFrame implements ActionListener {
 	lblSouth = new JLabel("Hier gibt es bald verkaufte Tickets!");
 	lblSouth.setHorizontalAlignment(SwingConstants.CENTER);
 	
-	pnlSouth.add(lblSouth);
-	getContentPane().add(pnlSouth);		
-	setVisible(true);
-	
-	pnlVerkaufteTickets.add(pnlNorth);
-	pnlVerkaufteTickets.add(pnlSouth);
-	
-
-	
-	  // Daten für die Tabelle
-    Object[][] data = {
-            {1, "Erwachsen", 10, 100, 50.0},
-            {2, "Kind", 15, 150, 75.0},
-            {3, "Senioren", 20, 200, 100.0}
+	// Daten für die Tabelle
+    String[][] data = {
+            {"1", "Erwachsen", "10", "100", "50.0"},
+            {"2", "Kind", "15", "150", "75.0"},
+            {"3", "Senioren", "20", "200", "100.0"}
     };
 
     // Spaltenüberschriften
     String[] columnNames = {"ID", "Art", "Dauer", "Menge", "Preis"};
 
-    // DefaultTableModel erstellen
-    DefaultTableModel model = new DefaultTableModel(data, columnNames);
-
     // JTable erstellen
-    ticketTable = new JTable(model);
+    ticketTable = new JTable(data, columnNames);
 
-    // Optional: JTable zu JScrollPane hinzufügen
+    // JTable zu JScrollPane hinzufügen
     JScrollPane scrollPane = new JScrollPane(ticketTable);
-
-    
-    pnlNorth.add(ticketTable);
-    
+	
+    pnlNorth.add(scrollPane, BorderLayout.CENTER);
+	pnlMain.add(pnlNorth, BorderLayout.NORTH);
+	pnlMain.add(pnlSouth, BorderLayout.SOUTH);
+	
+	getContentPane().add(pnlMain);		
+	setVisible(true);    
 }
-	
-	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

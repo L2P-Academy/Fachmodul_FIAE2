@@ -12,7 +12,7 @@ public class ZooApp {
 
 	public static void main(String[] args) {
 		
-		SwingUtilities.invokeLater(()-> new TicketsSold());
+//		SwingUtilities.invokeLater(()-> new TicketsSold());
 		
 		try {
 			// setze auf ein wunderschönes Aussehen
