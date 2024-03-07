@@ -34,6 +34,20 @@ public class AnimalView extends JFrame implements ActionListener {
 		standardMenuItem = new JMenuItem("Standardgröße");
 		listeTiereMenuItem = new JMenuItem("Liste der Tiere");
 		verkaufteTicketsMenuItem = new JMenuItem("Verkaufte Tickets");
+		
+		// Buttons anlegen
+		JButton btnAffe = new JButton("Zu den Affen 🐒");
+		btnAffe.setFont(font);
+		JButton btnElefant = new JButton("Zu den Elefanten 🐘");
+		btnElefant.setFont(font);
+		JButton btnGiraffe = new JButton("Zu den Giraffen 🦒");
+		btnGiraffe.setFont(font);
+		JButton btnLöwe = new JButton("Zu den Löwen 🦁");
+		btnLöwe.setFont(font);
+		JButton btnZebra = new JButton("Zu den Zebras 🦓");
+		btnZebra.setFont(font);
+		JButton btnHyäne = new JButton("Zu den Hyänen 🐆");
+		btnHyäne.setFont(font);
 
 		// ActionListener für die Menübar
 		beendenMenuItem.addActionListener(new ActionListener() {
@@ -107,22 +121,7 @@ public class AnimalView extends JFrame implements ActionListener {
 
 		// Erstellen des Hauptpanels & Layout anlegen
 		pnlTiergehege = new JPanel();
-		pnlTiergehege.setLayout(new GridLayout(3, 2));
-		
-		// Buttons anlegen
-		JButton btnAffe = new JButton("Zu den Affen 🐒");
-		btnAffe.setFont(font);
-		JButton btnElefant = new JButton("Zu den Elefanten 🐘");
-		btnElefant.setFont(font);
-		JButton btnGiraffe = new JButton("Zu den Giraffen 🦒");
-		btnGiraffe.setFont(font);
-		JButton btnLöwe = new JButton("Zu den Löwen 🦁");
-		btnLöwe.setFont(font);
-		JButton btnZebra = new JButton("Zu den Zebras 🦓");
-		btnZebra.setFont(font);
-		JButton btnHyäne = new JButton("Zu den Hyänen 🐆");
-		btnHyäne.setFont(font);
-		
+		pnlTiergehege.setLayout(new GridLayout(3, 2));		
 		
 		// Bilder einfügen & deklarieren
 		ImageIcon imgAffe = new ImageIcon("res/img/Affe.jpg");
@@ -150,5 +149,11 @@ public class AnimalView extends JFrame implements ActionListener {
 		pnlTiergehege.add(btnHyäne);
 
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
