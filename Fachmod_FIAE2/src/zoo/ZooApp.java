@@ -1,5 +1,6 @@
 package zoo;
 
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
@@ -10,6 +11,8 @@ import zoo.View.*;
 public class ZooApp {
 
 	public static void main(String[] args) {
+		
+		SwingUtilities.invokeLater(()-> new TicketsSold());
 		
 		try {
 			// setze auf ein wunderschönes Aussehen
