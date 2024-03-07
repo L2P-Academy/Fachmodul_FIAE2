@@ -1,5 +1,6 @@
 package zoo.Controller;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -18,10 +19,11 @@ public class SalesController {
 		ticketsystem.addTicket(ticketType, ticketPrice, ticketDate);
 	}
 	
-	public Double preisBerechnung(int ticketAnzahl, Double ticketPrice, int dauer) {
+	public String preisBerechnung(int ticketAnzahl, Double ticketPrice, int dauer) {
+		DecimalFormat decimalFormat = new DecimalFormat("#.##");
 		Double dauerFaktor = 0.0;
 		Double preis;
-		
+				
 		switch (dauer) {
 		case 2: {
 			dauerFaktor = 1.0 / 3;
@@ -38,8 +40,9 @@ public class SalesController {
 		}
 		
 		preis = ticketAnzahl*dauerFaktor*ticketPrice;
-		
-		return preis;
+		String gerundetPreis = decimalFormat.format(preis);
+		gerundetPreis = gerundetPreis + "€";
+		return gerundetPreis;
 						
 	}
 }

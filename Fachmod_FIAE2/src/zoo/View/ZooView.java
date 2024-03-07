@@ -224,7 +224,6 @@ public class ZooView extends JFrame implements ActionListener {
 		// Umwandlung der Besuchsdauer zurück in Integer für spätere Berechnung
 		besuchsdauer = besuchsdauer.replace(" Std.", "");
 		int dauer = Integer.parseInt(besuchsdauer);
-		
 		JOptionPane.showMessageDialog(this, salesController.preisBerechnung(ticketAnzahl, getTicketPriceForType(getSelectedTicketType()), dauer) );
 	}
 		
