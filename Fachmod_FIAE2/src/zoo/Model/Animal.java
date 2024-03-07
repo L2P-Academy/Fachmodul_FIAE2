@@ -66,6 +66,7 @@ public class Animal {
         animals.add(new Animal("Giselle", 8, "Giraffe", Arrays.asList(NutritionType.Pflanzenfresser)));
         animals.add(new Animal("Donkey Kong", 4, "Affe", Arrays.asList(NutritionType.Allesfresser)));
         animals.add(new Animal("Zara", 3, "Zebra", Arrays.asList(NutritionType.Pflanzenfresser)));
+        animals.add(new Animal("Harald", 7, "Hyäne", Arrays.asList(NutritionType.Allesfresser)));
         return animals;
     }
 }
