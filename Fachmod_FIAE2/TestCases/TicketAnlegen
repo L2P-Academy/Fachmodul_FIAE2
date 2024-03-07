@@ -1,0 +1,20 @@
+# Testfall: Erstellen eines Tickets
+
+## Beschreibung
+Der Benutzer möchte ein neues Ticket für den Zoo erstellen. Ein Ticket enthält Informationen
+zu Art, Aufenthaltsdauer und Anzahl der Einzeltickets.
+
+## Anleitung
+
+1. Öffnen Sie die Anwendung.
+2. Wählen Sie die Art des Tickets (Erwachsener, Kind, Senior) aus.
+3. Geben Sie die Anzahl aus einer Dropdown-Liste an (max. 10).
+4. Wählen Sie die Dauer des Aufenthalts aus einer Dropdown-Liste aus.
+5. Der Benutzer klickt auf die Schaltfläche "Eintritt".
+
+## Erwartete Ergebnisse
+- Es öffnet sich die AnimalView, in der die Tiere des Zoos angezeigt werden.
+- Ein neues Ticket wird im Hintergrund erfolgreich erstellt (XML)
+- Die Informationen zur Art, Anzahl und Dauer des Tickets sind korrekt.
+- Das erstellte Ticket wird im System gespeichert und kann später angezeigt werden.
+  
