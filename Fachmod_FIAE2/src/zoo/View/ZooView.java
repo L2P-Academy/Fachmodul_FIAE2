@@ -14,7 +14,7 @@ public class ZooView extends JFrame implements ActionListener {
 
 	private JMenuBar menubar;
 	private JMenu startMenu, ansichtMenu, zooverwaltungMenu;
-	private JMenuItem verkaufsuebersichtMenuItem, beendenMenuItem, minimierenMenuItem, maximierenMenuItem, standardMenuItem, listeTiereMenuItem, verkaufteTicketsMenuItem;
+	private JMenuItem beendenMenuItem, minimierenMenuItem, maximierenMenuItem, standardMenuItem, listeTiereMenuItem, verkaufteTicketsMenuItem;
 	private JButton btnEintritt;
 	private JRadioButton kinderButton, erwachseneButton, seniorenButton;
 	private JPanel pnlHaupt;
@@ -42,8 +42,6 @@ public class ZooView extends JFrame implements ActionListener {
 		startMenu = new JMenu("Start");
 		ansichtMenu = new JMenu("Ansicht");
 		zooverwaltungMenu = new JMenu("Zooverwaltung");
-		verkaufsuebersichtMenuItem = new JMenuItem("Verkaufsübersicht");
-		verkaufsuebersichtMenuItem.addActionListener(null);
 		beendenMenuItem = new JMenuItem("Beenden");
 		minimierenMenuItem = new JMenuItem("Minimieren");
 		maximierenMenuItem = new JMenuItem("Maximieren");
@@ -106,7 +104,6 @@ public class ZooView extends JFrame implements ActionListener {
 		});
 
 		// Hinzufügen der Menüitems und Menüs zur Menubar
-		startMenu.add(verkaufsuebersichtMenuItem);
 		startMenu.add(beendenMenuItem);
 		ansichtMenu.add(minimierenMenuItem);
 		ansichtMenu.add(maximierenMenuItem);
