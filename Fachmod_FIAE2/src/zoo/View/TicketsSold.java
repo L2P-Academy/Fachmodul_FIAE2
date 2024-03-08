@@ -3,11 +3,13 @@ package zoo.View;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import zoo.Model.SerializationIDs;
 
 
 public class TicketsSold extends JFrame implements ActionListener {
+	
 
+	private static final long serialVersionUID = SerializationIDs.TICKETS_SOLD_UID ;
 	private JMenuBar menubar;
 	private JMenu startMenu, ansichtMenu, zooverwaltungMenu;
 	private JMenuItem verkaufsuebersichtMenuItem, beendenMenuItem, minimierenMenuItem, maximierenMenuItem, standardMenuItem, listeTiereMenuItem, verkaufteTicketsMenuItem;
@@ -17,7 +19,15 @@ public class TicketsSold extends JFrame implements ActionListener {
 	private JLabel lblNorth;
 	private JLabel lblSouth;
 	private JTable ticketTable;
-	
+	private JPanel pnlAuflistung;
+	private JPanel pnlBerechnung;
+	private JLabel lblErwachsen;
+	private JLabel lblKinder;
+	private JLabel lblSenioren;
+	private JLabel lblBrechnung;
+	private JLabel lblUeberschrift;
+	private JLabel lblSumme;
+	private JLabel lblMenge;
 
 	public TicketsSold() {
 		setTitle("Verkaufte Tickets");
@@ -116,32 +126,70 @@ public class TicketsSold extends JFrame implements ActionListener {
 	pnlSouth = new JPanel();
 	pnlSouth.setLayout(new BorderLayout());
 	
-	lblSouth = new JLabel("Hier gibt es bald verkaufte Tickets!");
-	lblSouth.setHorizontalAlignment(SwingConstants.CENTER);
+	pnlAuflistung = new JPanel();
+	pnlAuflistung.setLayout(new GridBagLayout());
+	GridBagConstraints gbc = new GridBagConstraints();
+	gbc.anchor = GridBagConstraints.NORTHWEST;
+    
+	pnlBerechnung = new JPanel();
+	pnlBerechnung.setLayout(new BorderLayout()); 
+	
+	
+	lblUeberschrift = new JLabel("Auflistung und Rechnung");
+	
+	lblErwachsen = new JLabel("Erwachsene ");
+	
+	lblKinder = new JLabel("Kinder ");
+	
+	lblSenioren = new JLabel("Senioren ");
+	
+	lblSumme = new JLabel("Summe");
+	
+	lblMenge = new JLabel("Menge");
+	
+	
 	
 	// Daten für die Tabelle
     String[][] data = {
-            {"1", "Erwachsen", "10", "100", "50.0"},
-            {"2", "Kind", "15", "150", "75.0"},
-            {"3", "Senioren", "20", "200", "100.0"}
+            {"1", "Erwachsen", "10", "100", "25.03.2024", "50.0"},
+            {"2", "Kind", "15", "150", "25.03.2024", "75.0"},
+            {"3", "Senioren", "20", "200", "25.03.2024", "100.0"}
     };
 
     // Spaltenüberschriften
-    String[] columnNames = {"ID", "Art", "Dauer", "Menge", "Preis"};
+    String[] columnNames = {"ID", "Art", "Dauer", "Menge", "Datum", "Preis"};
 
-    // JTable erstellen
-    ticketTable = new JTable(data, columnNames);
+    // JTable erstellen und speeren der änderung in Zeilen
+    ticketTable = new JTable(data, columnNames) {
+        public boolean isCellEditable(int x, int y) {
+            return false;
+        }
+    };
 
     // JTable zu JScrollPane hinzufügen
     JScrollPane scrollPane = new JScrollPane(ticketTable);
 	
+    pnlAuflistung.add((lblUeberschrift), gbc);
+    pnlAuflistung.add((lblErwachsen), gbc);
+    pnlAuflistung.add((lblKinder), gbc);
+    pnlAuflistung.add((lblSenioren), gbc);
+    pnlAuflistung.add((lblSumme), gbc);
     pnlNorth.add(scrollPane, BorderLayout.CENTER);
+	pnlSouth.add(pnlAuflistung, BorderLayout.WEST);
+	pnlSouth.add(pnlBerechnung, BorderLayout.EAST);
 	pnlMain.add(pnlNorth, BorderLayout.NORTH);
 	pnlMain.add(pnlSouth, BorderLayout.SOUTH);
+	
+	
 	
 	getContentPane().add(pnlMain);		
 	setVisible(true);    
 }
+
+	private Component createLabel(JLabel lblUeberschrift2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
