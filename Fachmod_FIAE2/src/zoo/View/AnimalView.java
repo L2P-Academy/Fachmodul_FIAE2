@@ -1,5 +1,7 @@
 package zoo.View;
 
+import zoo.Model.Animal;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +16,9 @@ public class AnimalView extends JFrame implements ActionListener {
 	private JMenuItem verkaufsuebersichtMenuItem, beendenMenuItem, minimierenMenuItem, maximierenMenuItem,
 			standardMenuItem, listeTiereMenuItem, verkaufteTicketsMenuItem;
 	private JButton btnAffe;
-	Font font = new Font("Monospaced", Font.BOLD, 28);
+	public Font font = new Font("Monospaced", Font.BOLD, 28);
+	public Font font2 = new Font("Monospaced", Font.BOLD, 14);
+	public Color color=new Color(224,224,224);
 
 	public AnimalView() {
 		setTitle("Tiergehege");
@@ -103,9 +107,6 @@ public class AnimalView extends JFrame implements ActionListener {
 			}
 		});
 		
-		// Buttons ActionListener
-		btnAffe.addActionListener(this);
-
 		// Hinzufügen der Menüitems und Menüs zur Menubar
 		startMenu.add(verkaufsuebersichtMenuItem);
 		startMenu.add(beendenMenuItem);
@@ -138,7 +139,7 @@ public class AnimalView extends JFrame implements ActionListener {
 		JLabel lblLöwe = new JLabel(imgLöwe);
 		JLabel lblZebra = new JLabel(imgZebra);
 		JLabel lblHyäne = new JLabel(imgHyäne);
-
+		
 		// JPanels dem HauptPanel hinzufügen
 		getContentPane().add(pnlTiergehege);
 		pnlTiergehege.add(btnAffe);
@@ -147,6 +148,110 @@ public class AnimalView extends JFrame implements ActionListener {
 		pnlTiergehege.add(btnLöwe);
 		pnlTiergehege.add(btnZebra);
 		pnlTiergehege.add(btnHyäne);
+		
+		// Buttons ActionListener
+		
+		btnAffe.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent v) {
+				JTextArea txtAffe = new JTextArea(
+						"Tierart: " + Animal.createAnimals().get(3).getSpecies() 
+						+ "\nName: " + Animal.createAnimals().get(3).getName() 
+						+ "\nAlter: " + Animal.createAnimals().get(3).getAge() + " Jahre"
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(3).getType());
+				
+				txtAffe.setBackground(color);
+				txtAffe.setFont(font2);
+				
+				JOptionPane.showMessageDialog(null, new Object[]{txtAffe, lblAffe} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		btnElefant.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent v) {
+				JTextArea txtElefant = new JTextArea(
+						"Tierart: " + Animal.createAnimals().get(1).getSpecies() 
+						+ "\nName: " + Animal.createAnimals().get(1).getName() 
+						+ "\nAlter: " + Animal.createAnimals().get(1).getAge() + " Jahre"
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(1).getType());
+				
+				txtElefant.setBackground(color);
+				txtElefant.setFont(font2);
+				
+				JOptionPane.showMessageDialog(null, new Object[]{txtElefant, lblElefant} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		btnGiraffe.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent v) {
+				JTextArea txtGiraffe = new JTextArea(
+						"Tierart: " + Animal.createAnimals().get(2).getSpecies() 
+						+ "\nName: " + Animal.createAnimals().get(2).getName() 
+						+ "\nAlter: " + Animal.createAnimals().get(2).getAge() + " Jahre"
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(2).getType());
+				
+				txtGiraffe.setBackground(color);
+				txtGiraffe.setFont(font2);
+				
+				JOptionPane.showMessageDialog(null, new Object[]{txtGiraffe, lblGiraffe} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		btnLöwe.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent v) {
+				JTextArea txtLöwe = new JTextArea(
+						"Tierart: " + Animal.createAnimals().get(0).getSpecies() 
+						+ "\nName: " + Animal.createAnimals().get(0).getName() 
+						+ "\nAlter: " + Animal.createAnimals().get(0).getAge() + " Jahre"
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(0).getType());
+				
+				txtLöwe.setBackground(color);
+				txtLöwe.setFont(font2);
+				
+				JOptionPane.showMessageDialog(null, new Object[]{txtLöwe, lblLöwe} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		btnZebra.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent v) {
+				JTextArea txtZebra = new JTextArea(
+						"Tierart: " + Animal.createAnimals().get(4).getSpecies() 
+						+ "\nName: " + Animal.createAnimals().get(4).getName() 
+						+ "\nAlter: " + Animal.createAnimals().get(4).getAge() + " Jahre"
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(4).getType());
+				
+				txtZebra.setBackground(color);
+				txtZebra.setFont(font2);
+				
+				JOptionPane.showMessageDialog(null, new Object[]{txtZebra, lblZebra} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		btnHyäne.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent v) {
+				JTextArea txtHyäne = new JTextArea(
+						"Tierart: " + Animal.createAnimals().get(5).getSpecies() 
+						+ "\nName: " + Animal.createAnimals().get(5).getName() 
+						+ "\nAlter: " + Animal.createAnimals().get(5).getAge() + " Jahre"
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(5).getType());
+				
+				txtHyäne.setBackground(color);
+				txtHyäne.setFont(font2);
+				
+				JOptionPane.showMessageDialog(null, new Object[]{txtHyäne, lblHyäne} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 
 		setVisible(true);
 	}
