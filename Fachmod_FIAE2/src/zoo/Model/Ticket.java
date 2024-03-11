@@ -10,6 +10,7 @@ public class Ticket {
 	private String ticketType;
 	private Date date;
 	
+	
 	public Ticket (String ticketType, Double ticketPrice, Date ticketDate) {
 		//TODO: TicketID beschaffen
 		this.ticketID = getTicketID();
