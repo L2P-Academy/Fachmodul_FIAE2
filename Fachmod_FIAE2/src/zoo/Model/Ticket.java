@@ -5,15 +5,14 @@ import java.util.Date;
 import java.util.List;
 
 public class Ticket {
-	private int ticketID;
+	private static int ticketID = 1;
 	private double price;
 	private String ticketType;
 	private Date date;
 	
 	
 	public Ticket (String ticketType, Double ticketPrice, Date ticketDate) {
-		//TODO: TicketID beschaffen
-		this.ticketID = getTicketID();
+		this.ticketID = ticketID++;
 		this.ticketType = ticketType;
 		this.price = ticketPrice;
 		this.date = Calendar.getInstance().getTime();

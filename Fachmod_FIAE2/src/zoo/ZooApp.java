@@ -4,7 +4,9 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import com.jtattoo.plaf.graphite.GraphiteLookAndFeel;
 
+import zoo.Controller.XMLController;
 import zoo.Controller.ZooController;
+import zoo.Model.Ticketsystem;
 import zoo.Model.ZooModel;
 import zoo.View.*;
 
@@ -29,7 +31,7 @@ public class ZooApp {
 		
 		// AnimalView animalView = new AnimalView();
 		
-		ZooController zooController = new ZooController();
+		ZooController zooController = new ZooController(zooModel, zooView);
 		
 		// Intialisierung
 		// Start: Anzeige + Startmethoden
