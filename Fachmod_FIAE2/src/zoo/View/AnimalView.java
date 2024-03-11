@@ -15,7 +15,7 @@ public class AnimalView extends JFrame implements ActionListener {
 	private JMenu startMenu, ansichtMenu, zooverwaltungMenu;
 	private JMenuItem verkaufsuebersichtMenuItem, beendenMenuItem, minimierenMenuItem, maximierenMenuItem,
 			standardMenuItem, listeTiereMenuItem, verkaufteTicketsMenuItem;
-	private JButton btnAffe;
+	private JButton btnDialogAffe, btnDialogElefant, btnDialogLöwe, btnDialogHyäne, btnDialogZebra, btnDialogGiraffe;
 	public Font font = new Font("Monospaced", Font.BOLD, 28);
 	public Font font2 = new Font("Monospaced", Font.BOLD, 14);
 	public Color color=new Color(224,224,224);
@@ -108,7 +108,7 @@ public class AnimalView extends JFrame implements ActionListener {
 		});
 		
 		// Hinzufügen der Menüitems und Menüs zur Menubar
-		startMenu.add(verkaufsuebersichtMenuItem);
+		//startMenu.add(verkaufsuebersichtMenuItem);
 		startMenu.add(beendenMenuItem);
 		ansichtMenu.add(minimierenMenuItem);
 		ansichtMenu.add(maximierenMenuItem);
@@ -149,6 +149,43 @@ public class AnimalView extends JFrame implements ActionListener {
 		pnlTiergehege.add(btnZebra);
 		pnlTiergehege.add(btnHyäne);
 		
+		// Deklaration btnDialog
+		btnDialogAffe = new JButton();
+		btnDialogAffe.setPreferredSize(new Dimension(50, 20));
+		btnDialogAffe.setMaximumSize(new Dimension(50, 30));
+		btnDialogAffe.setMinimumSize(new Dimension(50, 10));
+		btnDialogAffe.setText("Zum nächsten Gehege");
+		
+		// JOptionPane Deklarationen
+		JOptionPane PaneAffe = new JOptionPane(); 
+		JOptionPane PaneElefant = new JOptionPane();
+		
+		// Nächstes Gehege Button
+		btnDialogAffe.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent v) {
+				PaneAffe.setValue(JOptionPane.CLOSED_OPTION);
+				JOptionPane PaneAffe = new JOptionPane(); 
+				JOptionPane PaneElefant = new JOptionPane();
+				JTextArea txtElefant = new JTextArea(
+						"Tierart: " + Animal.createAnimals().get(1).getSpecies() 
+						+ "\nName: " + Animal.createAnimals().get(1).getName() 
+						+ "\nAlter: " + Animal.createAnimals().get(1).getAge() + " Jahre"
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(1).getType().toString().replace("[", "").replace("]", ""));
+				
+				txtElefant.setBackground(color);
+				txtElefant.setFont(font2);
+				
+				PaneAffe.setVisible(false);
+				
+				PaneElefant.showMessageDialog(null, new Object[]{txtElefant, lblElefant} , "Affengehege", JOptionPane.INFORMATION_MESSAGE);
+				PaneElefant.setVisible(true);
+
+				}
+		});
+
+		
 		// Buttons ActionListener
 		
 		btnAffe.addActionListener(new ActionListener() {
@@ -159,12 +196,12 @@ public class AnimalView extends JFrame implements ActionListener {
 						"Tierart: " + Animal.createAnimals().get(3).getSpecies() 
 						+ "\nName: " + Animal.createAnimals().get(3).getName() 
 						+ "\nAlter: " + Animal.createAnimals().get(3).getAge() + " Jahre"
-						+ "\nErnährungstyp: " + Animal.createAnimals().get(3).getType());
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(3).getType().toString().replace("[", "").replace("]", ""));
 				
 				txtAffe.setBackground(color);
 				txtAffe.setFont(font2);
 				
-				JOptionPane.showMessageDialog(null, new Object[]{txtAffe, lblAffe} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, new Object[]{txtAffe, lblAffe, btnDialogAffe} , "Affengehege", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		
@@ -176,7 +213,7 @@ public class AnimalView extends JFrame implements ActionListener {
 						"Tierart: " + Animal.createAnimals().get(1).getSpecies() 
 						+ "\nName: " + Animal.createAnimals().get(1).getName() 
 						+ "\nAlter: " + Animal.createAnimals().get(1).getAge() + " Jahre"
-						+ "\nErnährungstyp: " + Animal.createAnimals().get(1).getType());
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(1).getType().toString().replace("[", "").replace("]", ""));
 				
 				txtElefant.setBackground(color);
 				txtElefant.setFont(font2);
@@ -193,12 +230,12 @@ public class AnimalView extends JFrame implements ActionListener {
 						"Tierart: " + Animal.createAnimals().get(2).getSpecies() 
 						+ "\nName: " + Animal.createAnimals().get(2).getName() 
 						+ "\nAlter: " + Animal.createAnimals().get(2).getAge() + " Jahre"
-						+ "\nErnährungstyp: " + Animal.createAnimals().get(2).getType());
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(2).getType().toString().replace("[", "").replace("]", ""));
 				
 				txtGiraffe.setBackground(color);
 				txtGiraffe.setFont(font2);
 				
-				JOptionPane.showMessageDialog(null, new Object[]{txtGiraffe, lblGiraffe} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, new Object[]{txtGiraffe, lblGiraffe} , "Giraffengehege", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		
@@ -210,12 +247,12 @@ public class AnimalView extends JFrame implements ActionListener {
 						"Tierart: " + Animal.createAnimals().get(0).getSpecies() 
 						+ "\nName: " + Animal.createAnimals().get(0).getName() 
 						+ "\nAlter: " + Animal.createAnimals().get(0).getAge() + " Jahre"
-						+ "\nErnährungstyp: " + Animal.createAnimals().get(0).getType());
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(0).getType().toString().replace("[", "").replace("]", ""));
 				
 				txtLöwe.setBackground(color);
 				txtLöwe.setFont(font2);
 				
-				JOptionPane.showMessageDialog(null, new Object[]{txtLöwe, lblLöwe} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, new Object[]{txtLöwe, lblLöwe} , "Löwengehege", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		
@@ -227,12 +264,12 @@ public class AnimalView extends JFrame implements ActionListener {
 						"Tierart: " + Animal.createAnimals().get(4).getSpecies() 
 						+ "\nName: " + Animal.createAnimals().get(4).getName() 
 						+ "\nAlter: " + Animal.createAnimals().get(4).getAge() + " Jahre"
-						+ "\nErnährungstyp: " + Animal.createAnimals().get(4).getType());
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(4).getType().toString().replace("[", "").replace("]", ""));
 				
 				txtZebra.setBackground(color);
 				txtZebra.setFont(font2);
 				
-				JOptionPane.showMessageDialog(null, new Object[]{txtZebra, lblZebra} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, new Object[]{txtZebra, lblZebra} , "Zebragehege", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		
@@ -244,12 +281,12 @@ public class AnimalView extends JFrame implements ActionListener {
 						"Tierart: " + Animal.createAnimals().get(5).getSpecies() 
 						+ "\nName: " + Animal.createAnimals().get(5).getName() 
 						+ "\nAlter: " + Animal.createAnimals().get(5).getAge() + " Jahre"
-						+ "\nErnährungstyp: " + Animal.createAnimals().get(5).getType());
+						+ "\nErnährungstyp: " + Animal.createAnimals().get(5).getType().toString().replace("[", "").replace("]", ""));
 				
 				txtHyäne.setBackground(color);
 				txtHyäne.setFont(font2);
 				
-				JOptionPane.showMessageDialog(null, new Object[]{txtHyäne, lblHyäne} , "Elefantengehege", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, new Object[]{txtHyäne, lblHyäne} , "Hyänengehege", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 
