@@ -1,1 +1,38 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><Tickets><Ticket><TicketID>1</TicketID><Type>Erwachsene</Type><Price>20.0</Price><Date>Mon Mar 11 11:51:30 CET 2024</Date></Ticket></Tickets>
+<?xml version="1.0" encoding="UTF-8"?><Tickets>
+    <Ticket>
+        <TicketID>1</TicketID>
+        <Type>Erwachsene</Type>
+        <Price>20.0</Price>
+        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
+    </Ticket>
+    <Ticket>
+        <TicketID>1</TicketID>
+        <Type>Erwachsene</Type>
+        <Price>20.0</Price>
+        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
+    </Ticket>
+    <Ticket>
+        <TicketID>1</TicketID>
+        <Type>Erwachsene</Type>
+        <Price>20.0</Price>
+        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
+    </Ticket>
+    <Ticket>
+        <TicketID>1</TicketID>
+        <Type>Erwachsene</Type>
+        <Price>20.0</Price>
+        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
+    </Ticket>
+    <Ticket>
+        <TicketID>1</TicketID>
+        <Type>Erwachsene</Type>
+        <Price>20.0</Price>
+        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
+    </Ticket>
+    <Ticket>
+        <TicketID>1</TicketID>
+        <Type>Erwachsene</Type>
+        <Price>20.0</Price>
+        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
+    </Ticket>
+</Tickets>
