@@ -14,7 +14,7 @@ public class ZooController {
 	private ZooView zooView; 		//Variable zooView initialisieren
 	
 	
-	public void zooController(ZooModel zooModel,ZooView zooView) {
+	public ZooController(ZooModel zooModel,ZooView zooView) {
 		this.zooModel = zooModel; 
 		this.zooView = zooView;
 	}

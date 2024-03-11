@@ -34,9 +34,10 @@ public class ZooView extends JFrame implements ActionListener {
 	private Ticketsystem ticketsystem;
 
 	public ZooView() {
-		salesController = new SalesController(new Ticketsystem());
-		xmlController = new XMLController();
 		ticketsystem = new Ticketsystem();
+		salesController = new SalesController(ticketsystem);
+		xmlController = new XMLController(ticketsystem);
+		
 		
 		// Fenster initialisieren
 		setTitle("Zoo Eintritt");
@@ -220,8 +221,8 @@ public class ZooView extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		salesController.sellTicket(getSelectedTicketType(), getTicketPriceForType(getSelectedTicketType()),
-				Calendar.getInstance().getTime());
+//		salesController.sellTicket(getSelectedTicketType(), getTicketPriceForType(getSelectedTicketType()),
+//				Calendar.getInstance().getTime());
 		ticketAnzahl = (int) anzahlComboBox.getSelectedItem();
 		besuchsdauer = (String) dauerComboBox.getSelectedItem();
 		
