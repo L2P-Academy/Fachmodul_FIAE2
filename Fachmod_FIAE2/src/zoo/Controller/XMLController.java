@@ -21,12 +21,12 @@ import zoo.Model.Ticket;
 
 public class XMLController {
 	
-	Ticket ticket;
-	String datei = "/data/TicketList.xml";
+	private Ticket ticket;
+	private String datei = "/data/TicketList.xml";
 	
 	
 	public void xmlRead() {
-
+		
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
@@ -49,7 +49,7 @@ public class XMLController {
 	public void xmlWrite() {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
-		
+		// ticket = new Ticket();
 		try {
 			// Dokument erstellen
 			builder = factory.newDocumentBuilder();

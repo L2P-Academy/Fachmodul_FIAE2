@@ -3,6 +3,8 @@ package zoo.View;
 import javax.swing.*;
 
 import zoo.Controller.SalesController;
+import zoo.Controller.XMLController;
+import zoo.Model.Ticket;
 import zoo.Model.Ticketsystem;
 
 import java.awt.*;
@@ -25,12 +27,17 @@ public class ZooView extends JFrame implements ActionListener {
 	private JComboBox<String> dauerComboBox;
 	private JComboBox<Integer> anzahlComboBox;
 	private SalesController salesController;
+	private XMLController xmlController;
 	private Date date;
 	private int ticketAnzahl;
 	private String besuchsdauer;
+	private Ticketsystem ticketsystem;
 
 	public ZooView() {
 		salesController = new SalesController(new Ticketsystem());
+		xmlController = new XMLController();
+		ticketsystem = new Ticketsystem();
+		
 		// Fenster initialisieren
 		setTitle("Zoo Eintritt");
 		setSize(1200, 900);
@@ -221,6 +228,11 @@ public class ZooView extends JFrame implements ActionListener {
 		// Umwandlung der Besuchsdauer zurück in Integer für spätere Berechnung
 		besuchsdauer = besuchsdauer.replace(" Std.", "");
 		int dauer = Integer.parseInt(besuchsdauer);
+		
+		Date date = new Date();
+		ticketsystem.addTicket(getSelectedTicketType(),getTicketPriceForType(getSelectedTicketType()),date);
+		xmlController.xmlWrite();
+		
 		JOptionPane.showMessageDialog(this, salesController.preisBerechnung(ticketAnzahl, getTicketPriceForType(getSelectedTicketType()), dauer) );
 	}
 		
