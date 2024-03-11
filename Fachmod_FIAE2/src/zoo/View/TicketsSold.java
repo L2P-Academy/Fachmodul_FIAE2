@@ -222,9 +222,9 @@ public class TicketsSold extends JFrame implements ActionListener {
    
     pnlNorth.add(scrollPane, BorderLayout.CENTER);
     pnlSouth.add(scrollPaneAuflistung, BorderLayout.CENTER);
+    pnlMain.add(pnlSouth, BorderLayout.SOUTH);
 	pnlMain.add(pnlNorth, BorderLayout.NORTH);
 	pnlMain.add(trennLinie);
-	pnlMain.add(pnlSouth, BorderLayout.SOUTH);
 	
 	
 	
