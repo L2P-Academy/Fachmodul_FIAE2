@@ -21,13 +21,11 @@ public class TicketsSold extends JFrame implements ActionListener {
 	private JTable ticketTable;
 	private JPanel pnlAuflistung;
 	private JPanel pnlBerechnung;
-	private JLabel lblErwachsen;
-	private JLabel lblKinder;
-	private JLabel lblSenioren;
-	private JLabel lblBrechnung;
-	private JLabel lblUeberschrift;
-	private JLabel lblSumme;
-	private JLabel lblMenge;
+	private JPanel pnlMenge;
+	private JTable auflistung;
+	private JTable gesammtGeld;
+	private JTable gesammtMenge;
+
 
 	public TicketsSold() {
 		setTitle("Verkaufte Tickets");
@@ -127,26 +125,13 @@ public class TicketsSold extends JFrame implements ActionListener {
 	pnlSouth.setLayout(new BorderLayout());
 	
 	pnlAuflistung = new JPanel();
-	pnlAuflistung.setLayout(new GridBagLayout());
-	GridBagConstraints gbc = new GridBagConstraints();
-	gbc.anchor = GridBagConstraints.NORTHWEST;
-    
+	pnlAuflistung.setLayout(new BorderLayout()); 
+	
 	pnlBerechnung = new JPanel();
 	pnlBerechnung.setLayout(new BorderLayout()); 
 	
-	
-	lblUeberschrift = new JLabel("Auflistung und Rechnung");
-	
-	lblErwachsen = new JLabel("Erwachsene ");
-	
-	lblKinder = new JLabel("Kinder ");
-	
-	lblSenioren = new JLabel("Senioren ");
-	
-	lblSumme = new JLabel("Summe");
-	
-	lblMenge = new JLabel("Menge");
-	
+	pnlMenge = new JPanel();
+	pnlMenge.setLayout(new BorderLayout());
 	
 	
 	// Daten für die Tabelle
@@ -161,22 +146,90 @@ public class TicketsSold extends JFrame implements ActionListener {
 
     // JTable erstellen und speeren der änderung in Zeilen
     ticketTable = new JTable(data, columnNames) {
-        public boolean isCellEditable(int x, int y) {
+
+		public boolean isCellEditable(int x, int y) {
             return false;
         }
     };
 
     // JTable zu JScrollPane hinzufügen
     JScrollPane scrollPane = new JScrollPane(ticketTable);
+    
+ // Daten für die Tabelle
+    String[][] daten = {
+            {"Erwachsen"},
+            {"Kind"},
+            {"Senioren"},
+            {"Gesammt"}
+    };
+
+    // Spaltenüberschriften
+    String[] ueberschriftWest = {"Art"};
+
+    // JTable erstellen und speeren der änderung in Zeilen
+    auflistung = new JTable(daten, ueberschriftWest) {
+
+		public boolean isCellEditable(int x, int y) {
+            return false;
+        }
+    };
+    
+    // JTable zu JScrollPane hinzufügen
+    JScrollPane scrollPaneAuflistung = new JScrollPane(auflistung);
 	
-    pnlAuflistung.add((lblUeberschrift), gbc);
-    pnlAuflistung.add((lblErwachsen), gbc);
-    pnlAuflistung.add((lblKinder), gbc);
-    pnlAuflistung.add((lblSenioren), gbc);
-    pnlAuflistung.add((lblSumme), gbc);
+    // Daten für die Tabelle
+    String[][] menge = {
+            {"230 Stk",},
+            {"170 Stk"},
+            {"50 Stk"},
+            {"450 Stk"}
+    };
+
+    // Spaltenüberschriften
+    String[] ueberschriftCenter = {"Menge"};
+
+    // JTable erstellen und speeren der änderung in Zeilen
+    gesammtMenge = new JTable(menge, ueberschriftCenter) {
+
+		public boolean isCellEditable(int x, int y) {
+            return false;
+        }
+    };
+    
+    // JTable zu JScrollPane hinzufügen
+    JScrollPane scrollPaneMenge = new JScrollPane(gesammtMenge);
+	
+    
+    // Daten für die Tabelle
+    String[][] geld = {
+            {"250 €",},
+            {"150 €"},
+            {"50 €"},
+            {"450 €"}
+    };
+
+    // Spaltenüberschriften
+    String[] ueberschriftEast = {"Euro"};
+
+    // JTable erstellen und speeren der änderung in Zeilen
+    gesammtGeld = new JTable(geld, ueberschriftEast) {
+
+		public boolean isCellEditable(int x, int y) {
+            return false;
+        }
+    };
+
+    // JTable zu JScrollPane hinzufügen
+    JScrollPane scrollPaneGeld = new JScrollPane(gesammtGeld);
+    
+    
     pnlNorth.add(scrollPane, BorderLayout.CENTER);
+    pnlAuflistung.add(scrollPaneAuflistung, BorderLayout.CENTER);
+    pnlMenge.add(scrollPaneMenge, BorderLayout.CENTER);
+    pnlBerechnung.add(scrollPaneGeld, BorderLayout.CENTER);
 	pnlSouth.add(pnlAuflistung, BorderLayout.WEST);
 	pnlSouth.add(pnlBerechnung, BorderLayout.EAST);
+	pnlSouth.add(pnlMenge, BorderLayout.CENTER);
 	pnlMain.add(pnlNorth, BorderLayout.NORTH);
 	pnlMain.add(pnlSouth, BorderLayout.SOUTH);
 	
@@ -186,10 +239,6 @@ public class TicketsSold extends JFrame implements ActionListener {
 	setVisible(true);    
 }
 
-	private Component createLabel(JLabel lblUeberschrift2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
