@@ -111,7 +111,7 @@ public class XMLController {
 	        // Erstellen und Hinzufügen des Dauer-Elements
 	        Element dauerElement = document.createElement("Dauer");
 	        dauerElement.appendChild(document.createTextNode(String.valueOf(dauer)));
-	        ticketElement.appendChild(dateElement);
+	        ticketElement.appendChild(dauerElement);
 	        
 	        
 	        // Hinzufügen des Ticket-Elements zum Root-Element
