@@ -5,7 +5,9 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.transform.OutputKeys;
@@ -36,13 +38,31 @@ public class XMLController {
 		this.ticketsystem = ticketsystem;
 	}
 	
-	public void xmlRead() {
+	public String[][] xmlRead() {
 		
+		List <String[]> dataTemp = new ArrayList<>();
 		
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document document = builder.parse(dateiPfad);
+			document.normalize();
+			
+			NodeList nodeList = document.getElementsByTagName("Ticket");
+						
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				Node node = nodeList.item(i);
+				Element element = (Element) node;
+				String ticketID = element.getElementsByTagName("TicketID").item(0).getTextContent();
+				String type = element.getElementsByTagName("Type").item(0).getTextContent();
+				String dauer = element.getElementsByTagName("Dauer").item(0).getTextContent();
+				String date = element.getElementsByTagName("Date").item(0).getTextContent();
+				String price = element.getElementsByTagName("Price").item(0).getTextContent();
+				
+				String[] ticketData = {ticketID, type, dauer, date, price};
+				dataTemp.add(ticketData);
+			}
+		
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,6 +73,13 @@ public class XMLController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		String[][] data = new String[dataTemp.size()][];
+		
+		dataTemp.toArray(data);
+		
+		return data;
+		
 	
 		//TODO: Nodes einlesen
 	}
@@ -98,20 +125,20 @@ public class XMLController {
 	        typeElement.appendChild(document.createTextNode(ticket.getType()));
 	        ticketElement.appendChild(typeElement);
 	        
-	        // Erstellen und Hinzufügen des Price-Elements
-	        Element priceElement = document.createElement("Price");
-	        priceElement.appendChild(document.createTextNode(String.valueOf(ticket.getPrice())));
-	        ticketElement.appendChild(priceElement);
-	        
+	        // Erstellen und Hinzufügen des Dauer-Elements
+	        Element dauerElement = document.createElement("Dauer");
+	        dauerElement.appendChild(document.createTextNode(String.valueOf(dauer)));
+	        ticketElement.appendChild(dauerElement);
+             
 	        // Erstellen und Hinzufügen des Date-Elements
 	        Element dateElement = document.createElement("Date");
 	        dateElement.appendChild(document.createTextNode(String.valueOf(ticket.getDate())));
 	        ticketElement.appendChild(dateElement);
 	        
-	        // Erstellen und Hinzufügen des Dauer-Elements
-	        Element dauerElement = document.createElement("Dauer");
-	        dauerElement.appendChild(document.createTextNode(String.valueOf(dauer)));
-	        ticketElement.appendChild(dauerElement);
+	        // Erstellen und Hinzufügen des Price-Elements
+	        Element priceElement = document.createElement("Price");
+	        priceElement.appendChild(document.createTextNode(String.valueOf(ticket.getPrice())));
+	        ticketElement.appendChild(priceElement);
 	        
 	        
 	        // Hinzufügen des Ticket-Elements zum Root-Element

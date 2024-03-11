@@ -2,37 +2,50 @@
     <Ticket>
         <TicketID>1</TicketID>
         <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>Mon Mar 11 15:45:23 CET 2024</Date>
         <Price>20.0</Price>
-        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
     </Ticket>
     <Ticket>
         <TicketID>1</TicketID>
         <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>Mon Mar 11 15:45:35 CET 2024</Date>
         <Price>20.0</Price>
-        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
     </Ticket>
     <Ticket>
         <TicketID>1</TicketID>
         <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>Mon Mar 11 15:46:44 CET 2024</Date>
         <Price>20.0</Price>
-        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
     </Ticket>
     <Ticket>
         <TicketID>1</TicketID>
         <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>Mon Mar 11 15:48:13 CET 2024</Date>
         <Price>20.0</Price>
-        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
     </Ticket>
     <Ticket>
         <TicketID>1</TicketID>
         <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>Mon Mar 11 16:04:02 CET 2024</Date>
         <Price>20.0</Price>
-        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
     </Ticket>
     <Ticket>
         <TicketID>1</TicketID>
         <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>Mon Mar 11 16:14:13 CET 2024</Date>
         <Price>20.0</Price>
-        <Date>Mon Mar 11 14:48:58 CET 2024</Date>
+    </Ticket>
+    <Ticket>
+        <TicketID>1</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>Mon Mar 11 16:14:45 CET 2024</Date>
+        <Price>20.0</Price>
     </Ticket>
 </Tickets>
