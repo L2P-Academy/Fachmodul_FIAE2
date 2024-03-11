@@ -232,8 +232,9 @@ public class ZooView extends JFrame implements ActionListener {
 		
 		Date date = new Date();
 		ticketsystem.addTicket(getSelectedTicketType(),getTicketPriceForType(getSelectedTicketType()),date);
-		xmlController.xmlWrite();
-		
+		for (int i = 0; i < ticketAnzahl; i++) {
+			xmlController.xmlWrite(dauer);
+		}
 		JOptionPane.showMessageDialog(this, salesController.preisBerechnung(ticketAnzahl, getTicketPriceForType(getSelectedTicketType()), dauer) );
 	}
 		
