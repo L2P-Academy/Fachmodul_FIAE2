@@ -5,6 +5,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -169,7 +170,12 @@ public class XMLController {
              
 	        // Erstellen und Hinzufügen des Date-Elements
 	        Element dateElement = document.createElement("Date");
-	        dateElement.appendChild(document.createTextNode(String.valueOf(ticket.getDate())));
+       
+	        // Datum formatieren
+	        String pattern = "dd.MM.yyyy";
+	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+	        String date = simpleDateFormat.format(ticket.getDate());
+	        dateElement.appendChild(document.createTextNode(date));
 	        ticketElement.appendChild(dateElement);
 	        
 	        // Erstellen und Hinzufügen des Price-Elements
