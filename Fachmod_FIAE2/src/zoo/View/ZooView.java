@@ -140,9 +140,9 @@ public class ZooView extends JFrame implements ActionListener {
 		lblImageWelcome = new JLabel(scaledIcon);
 
 		// Radiobuttons für Ticketverkauf deklarieren
-		kinderButton = new JRadioButton("Kinder");
-		erwachseneButton = new JRadioButton("Erwachsene");
-		seniorenButton = new JRadioButton("Senioren");
+		kinderButton = new JRadioButton("Kinder - 5,00 €");
+		erwachseneButton = new JRadioButton("Erwachsene - 20,00 €");
+		seniorenButton = new JRadioButton("Senioren - 15,00 €");
 		
 		erwachseneButton.setSelected(true);
 
