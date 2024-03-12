@@ -81,7 +81,43 @@ public class XMLController {
 		return data;
 		
 	
-		//TODO: Nodes einlesen
+	}
+	
+	public int xmlReadTicketID() {
+		int ticketID = 0;
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		
+				try {
+				DocumentBuilder builder = factory.newDocumentBuilder();
+				
+				if (fileExists.exists()) {
+				Document document = builder.parse(dateiPfad);
+				document.normalize();
+				
+				NodeList nodeList = document.getElementsByTagName("Ticket");
+				int i = nodeList.getLength()-1;
+				Node node = nodeList.item(i);
+				Element element = (Element) node;
+				String ticketIDString = element.getElementsByTagName("TicketID").item(0).getTextContent();
+				ticketID = Integer.valueOf(ticketIDString);
+				ticketID = ticketID+1;
+				
+				} else {
+				ticketID = 1;	
+				}
+				
+			} catch (ParserConfigurationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SAXException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+		return ticketID;
 	}
 	
 	public void xmlWrite(int dauer) {
@@ -117,6 +153,7 @@ public class XMLController {
 	        
 	        // Erstellen und Hinzufügen des TicketID-Elements
 	        Element ticketIDElement = document.createElement("TicketID");
+	        ticket.setTicketID(xmlReadTicketID());
 	        ticketIDElement.appendChild(document.createTextNode(String.valueOf(ticket.getTicketID())));
 	        ticketElement.appendChild(ticketIDElement);
 	        

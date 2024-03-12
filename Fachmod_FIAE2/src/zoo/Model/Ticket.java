@@ -12,7 +12,6 @@ public class Ticket {
 	
 	
 	public Ticket (String ticketType, Double ticketPrice, Date ticketDate) {
-		Ticket.ticketID = ticketID++;
 		this.ticketType = ticketType;
 		this.price = ticketPrice;
 		this.date = Calendar.getInstance().getTime();
