@@ -239,7 +239,7 @@ public class ZooView extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(this, salesController.preisBerechnung(ticketAnzahl, getTicketPriceForType(getSelectedTicketType()), dauer) );
 	}
 		
-	private String getSelectedTicketType() {
+	public String getSelectedTicketType() {
 
 		if (kinderButton.isSelected()) {
 			return "Kinder";
@@ -251,7 +251,7 @@ public class ZooView extends JFrame implements ActionListener {
 		return "";
 	}
 
-	private Double getTicketPriceForType(String ticketType) {
+	public Double getTicketPriceForType(String ticketType) {
 		switch (ticketType) {
 		case "Kinder":
 			return 5.0;
