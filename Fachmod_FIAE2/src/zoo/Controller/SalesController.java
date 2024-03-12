@@ -19,8 +19,7 @@ public class SalesController {
 		ticketsystem.addTicket(ticketType, ticketPrice, ticketDate);
 	}
 	
-	public String preisBerechnung(int ticketAnzahl, Double ticketPrice, int dauer) {
-		DecimalFormat decimalFormat = new DecimalFormat("#.##");
+	public Double preisBerechnung(int ticketAnzahl, Double ticketPrice, int dauer) {
 		Double dauerFaktor = 0.0;
 		Double preis;
 				
@@ -40,9 +39,7 @@ public class SalesController {
 		}
 		
 		preis = ticketAnzahl*dauerFaktor*ticketPrice;
-		String gerundetPreis = decimalFormat.format(preis);
-		gerundetPreis = gerundetPreis + "€";
-		return gerundetPreis;
+		return preis;
 						
 	}
 }

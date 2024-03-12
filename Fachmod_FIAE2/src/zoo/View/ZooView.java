@@ -243,7 +243,7 @@ public class ZooView extends JFrame implements ActionListener {
 
 		if (kinderButton.isSelected()) {
 			return "Kinder";
-		} else if (erwachseneButton.isSelected()) {
+		} else if (erwachseneButton.isSelected()) { 
 			return "Erwachsene";
 		} else if (seniorenButton.isSelected()) {
 			return "Senioren";
