@@ -1,9 +1,16 @@
 package zoo.View;
 
 import java.awt.*;
+
 import java.awt.event.*;
 import javax.swing.*;
+
+import zoo.Controller.SalesController;
 import zoo.Model.SerializationIDs;
+import zoo.Model.Ticketsystem;
+import zoo.View.ZooView;
+
+
 
 
 public class TicketsSold extends JFrame implements ActionListener {
@@ -21,6 +28,14 @@ public class TicketsSold extends JFrame implements ActionListener {
 	private JTable ticketTable;
 	private JPanel pnlAuflistung;
 	private JTable auflistung;
+	private SalesController salesController;
+	private ZooView zooView;
+	private Ticketsystem ticketSystem;
+	
+	private int anzahl;
+	private int dauer;
+	private double preis;
+	private double zeilenPreis;
 
 
 
@@ -186,21 +201,21 @@ public class TicketsSold extends JFrame implements ActionListener {
     
  // Daten für die Tabelle
     String[][] daten = {
-            {"Erwachsen", "2", "", ""},
-            {"Erwachsen", "4", "", ""},
-            {"Erwachsen", "6", "", ""},
+            {"Erwachsen", "2", "5", ""},
+            {"Erwachsen", "4", "3", ""},
+            {"Erwachsen", "6", "4", ""},
             {"", "", "", ""},
-            {"Kind", "2", "", ""},
-            {"Kind", "4", "", ""},
-            {"Kind", "6", "", ""},
+            {"Kind", "2", "6", ""},
+            {"Kind", "4", "9", ""},
+            {"Kind", "6", "7", ""},
             {"", "", "", ""},
-            {"Senioren", "2", "", ""},
-            {"Senioren", "4", "", ""},
-            {"Senioren", "6", "", ""},
+            {"Senioren", "2", "2", ""},
+            {"Senioren", "4", "4", ""},
+            {"Senioren", "6", "3", ""},
             {"", "", "", ""},
-            {"Gesamt nach Dauer", "2", "", ""},
-            {"Gesamt nach Dauer", "4", "", ""},
-            {"Gesamt nach Dauer", "6", "", ""},
+            {"Gesamt nach Dauer", "2", "1", ""},
+            {"Gesamt nach Dauer", "4", "4", ""},
+            {"Gesamt nach Dauer", "6", "7", ""},
             {"", "", "", ""},
             {"Gesamt", "", "", ""}
     };
@@ -218,7 +233,21 @@ public class TicketsSold extends JFrame implements ActionListener {
     
     // JTable zu JScrollPane hinzufügen
     JScrollPane scrollPaneAuflistung = new JScrollPane(auflistung);
+    
+    zooView = new ZooView();
+    ticketSystem = new Ticketsystem();
+    salesController = new SalesController(ticketSystem);
+   
+    
 	
+    anzahl = Integer.parseInt(auflistung.getValueAt(1, 3).toString());
+    preis = zooView.getTicketPriceForType(auflistung.getValueAt(1, 1).toString());
+    dauer = Integer.parseInt(auflistung.getValueAt(1, 2).toString());
+    
+    
+    zeilenPreis = Double.parseDouble(salesController.preisBerechnung(anzahl, preis, dauer));
+    
+    auflistung.setValueAt(zeilenPreis, 1, 4);
    
     pnlNorth.add(scrollPane, BorderLayout.CENTER);
     pnlSouth.add(scrollPaneAuflistung, BorderLayout.CENTER);
