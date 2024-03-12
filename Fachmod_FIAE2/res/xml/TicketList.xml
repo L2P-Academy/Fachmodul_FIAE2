@@ -1,135 +1,450 @@
 <?xml version="1.0" encoding="UTF-8"?><Tickets>
     <Ticket>
         <TicketID>1</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:03:45 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>2</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:42:59 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>3</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:47:56 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>4</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:48:22 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>5</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:48:22 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>6</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:48:22 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>7</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:48:22 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>8</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:48:22 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>9</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:48:22 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>10</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 10:48:22 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Senioren</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>11</TicketID>
         <Type>Erwachsene</Type>
         <Dauer>2</Dauer>
-        <Date>Tue Mar 12 11:20:54 CET 2024</Date>
+        <Date>12.03.2024</Date>
         <Price>20.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>12</TicketID>
         <Type>Erwachsene</Type>
         <Dauer>2</Dauer>
-        <Date>Tue Mar 12 11:20:54 CET 2024</Date>
+        <Date>12.03.2024</Date>
         <Price>20.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>13</TicketID>
         <Type>Erwachsene</Type>
         <Dauer>2</Dauer>
-        <Date>Tue Mar 12 11:20:54 CET 2024</Date>
+        <Date>12.03.2024</Date>
         <Price>20.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>14</TicketID>
         <Type>Erwachsene</Type>
         <Dauer>2</Dauer>
-        <Date>Tue Mar 12 11:20:54 CET 2024</Date>
+        <Date>12.03.2024</Date>
         <Price>20.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>15</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 11:20:54 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>16</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>Tue Mar 12 11:20:54 CET 2024</Date>
-        <Price>20.0</Price>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>17</TicketID>
-        <Type>Erwachsene</Type>
-        <Dauer>2</Dauer>
-        <Date>12.10.2024</Date>
-        <Price>20.0</Price>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
     </Ticket>
     <Ticket>
         <TicketID>18</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>19</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>20</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>21</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>22</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>23</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>24</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>25</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>26</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>27</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>28</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>29</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>30</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>31</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>32</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>33</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>34</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>35</TicketID>
         <Type>Erwachsene</Type>
         <Dauer>2</Dauer>
         <Date>12.03.2024</Date>
         <Price>20.0</Price>
     </Ticket>
     <Ticket>
-        <TicketID>19</TicketID>
+        <TicketID>36</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>37</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>38</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>39</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>40</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>41</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>42</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>43</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>44</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>45</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>46</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>47</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>48</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>49</TicketID>
+        <Type>Senioren</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>50</TicketID>
+        <Type>Senioren</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>51</TicketID>
+        <Type>Senioren</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>52</TicketID>
+        <Type>Senioren</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>53</TicketID>
+        <Type>Senioren</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>54</TicketID>
+        <Type>Senioren</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>15.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>55</TicketID>
         <Type>Erwachsene</Type>
         <Dauer>6</Dauer>
         <Date>12.03.2024</Date>
         <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>56</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>57</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>58</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>59</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>60</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>61</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>62</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>63</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>64</TicketID>
+        <Type>Kinder</Type>
+        <Dauer>4</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>5.0</Price>
     </Ticket>
 </Tickets>

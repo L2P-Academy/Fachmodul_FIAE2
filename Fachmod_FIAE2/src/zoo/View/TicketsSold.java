@@ -3,9 +3,12 @@ package zoo.View;
 import java.awt.*;
 
 import java.awt.event.*;
+import java.util.Iterator;
+
 import javax.swing.*;
 
 import zoo.Controller.SalesController;
+import zoo.Controller.XMLController;
 import zoo.Model.SerializationIDs;
 import zoo.Model.Ticketsystem;
 import zoo.View.ZooView;
@@ -31,6 +34,7 @@ public class TicketsSold extends JFrame implements ActionListener {
 	private SalesController salesController;
 	private ZooView zooView;
 	private Ticketsystem ticketSystem;
+	private XMLController xmlController;
 	
 	private int anzahl;
 	private int dauer;
@@ -136,54 +140,11 @@ public class TicketsSold extends JFrame implements ActionListener {
 	pnlSouth = new JPanel();
 	pnlSouth.setLayout(new BorderLayout());
 	
-	JSeparator trennLinie = new JSeparator();
-	
 	
 	
 	// Daten für die Tabelle
-    String[][] data = {
-            {"1", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"2", "Kind", "4", "22.03.2024", "75.0"},
-            {"3", "Senioren", "6", "15.03.2024", "100.0"},
-            {"4", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"5", "Kind", "4", "22.03.2024", "75.0"},
-            {"6", "Senioren", "6", "15.03.2024", "100.0"},
-            {"7", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"8", "Kind", "4", "22.03.2024", "75.0"},
-            {"9", "Senioren", "6", "15.03.2024", "100.0"},
-            {"10", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"11", "Kind", "4", "22.03.2024", "75.0"},
-            {"12", "Senioren", "6", "15.03.2024", "100.0"},
-            {"13", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"14", "Kind", "4", "22.03.2024", "75.0"},
-            {"15", "Senioren", "6", "15.03.2024", "100.0"},
-            {"16", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"17", "Kind", "4", "22.03.2024", "75.0"},
-            {"18", "Senioren", "6", "15.03.2024", "100.0"},
-            {"19", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"20", "Kind", "4", "22.03.2024", "75.0"},
-            {"21", "Senioren", "6", "15.03.2024", "100.0"},
-            {"22", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"23", "Kind", "4", "22.03.2024", "75.0"},
-            {"24", "Senioren", "6", "15.03.2024", "100.0"},
-            {"25", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"26", "Kind", "4", "22.03.2024", "75.0"},
-            {"27", "Senioren", "6", "15.03.2024", "100.0"},
-            {"28", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"29", "Kind", "4", "22.03.2024", "75.0"},
-            {"30", "Senioren", "6", "15.03.2024", "100.0"},
-            {"31", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"32", "Kind", "4", "22.03.2024", "75.0"},
-            {"33", "Senioren", "6", "15.03.2024", "100.0"},
-            {"34", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"35", "Kind", "4", "22.03.2024", "75.0"},
-            {"36", "Senioren", "6", "15.03.2024", "100.0"},
-            {"37", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"38", "Kind", "4", "22.03.2024", "75.0"},
-            {"39", "Senioren", "6", "15.03.2024", "100.0"},
-            {"40", "Erwachsen", "2", "02.03.2024", "50.0"},
-            {"41", "Kind", "4", "22.03.2024", "75.0"}
-    };
+	xmlController = new XMLController(ticketSystem);
+    String[][] data = xmlController.xmlRead();
 
     // Spaltenüberschriften
     String[] columnNames = {"ID", "Art", "Dauer", "Datum", "Preis"};
@@ -205,17 +166,13 @@ public class TicketsSold extends JFrame implements ActionListener {
             {"Erwachsene", "4", "3", ""},
             {"Erwachsene", "6", "4", ""},
             {"", "", "", ""},
-            {"Kind", "2", "6", ""},
-            {"Kind", "4", "9", ""},
-            {"Kind", "6", "7", ""},
+            {"Kinder", "2", "6", ""},
+            {"Kinder", "4", "9", ""},
+            {"Kinder", "6", "7", ""},
             {"", "", "", ""},
             {"Senioren", "2", "2", ""},
             {"Senioren", "4", "4", ""},
             {"Senioren", "6", "3", ""},
-            {"", "", "", ""},
-            {"Gesamt nach Dauer", "2", "1", ""},
-            {"Gesamt nach Dauer", "4", "4", ""},
-            {"Gesamt nach Dauer", "6", "7", ""},
             {"", "", "", ""},
             {"Gesamt", "", "", ""}
     };
@@ -234,34 +191,87 @@ public class TicketsSold extends JFrame implements ActionListener {
     // JTable zu JScrollPane hinzufügen
     JScrollPane scrollPaneAuflistung = new JScrollPane(auflistung);
     
+//    for (int i = 0; i < auflistung.getRowCount(); i++) {
+//    	int gesamtmenge = 0;
+//		
+//	}
+    
     zooView = new ZooView();
     ticketSystem = new Ticketsystem();
     salesController = new SalesController(ticketSystem);
-   
+    
+    // Berechnung der Ticketanzahl
+    // Erwachsene 2h Dauer
+    auflistung.setValueAt(calcAmounts("Erwachsene", "2") + "", 0, 2);
+    // Erwachsene 4h Dauer
+    auflistung.setValueAt(calcAmounts("Erwachsene", "4") + "", 1, 2);
+    // Erwachsene 6h Dauer
+    auflistung.setValueAt(calcAmounts("Erwachsene", "6") + "", 2, 2);
+    
+    // Kinder 2h Dauer
+    auflistung.setValueAt(calcAmounts("Kinder", "2") + "", 4, 2);
+    // Kinder 4h Dauer
+    auflistung.setValueAt(calcAmounts("Kinder", "4") + "", 5, 2);
+    // Kinder 6h Dauer
+    auflistung.setValueAt(calcAmounts("Kinder", "6") + "", 6, 2);
+    
+    // Senioren 2h Dauer
+    auflistung.setValueAt(calcAmounts("Senioren", "2") + "", 8, 2);
+    // Senioren 4h Dauer
+    auflistung.setValueAt(calcAmounts("Senioren", "4") + "", 9, 2);
+    // Senioren 6h Dauer
+    auflistung.setValueAt(calcAmounts("Senioren", "6") + "", 10, 2);
 	
-    anzahl = Integer.parseInt(auflistung.getValueAt(0, 2).toString());
-    preis = zooView.getTicketPriceForType(auflistung.getValueAt(0, 0).toString());
-    dauer = Integer.parseInt(auflistung.getValueAt(0, 1).toString());
-        
-    zeilenPreis = salesController.preisBerechnung(anzahl, preis, dauer);    
-    auflistung.setValueAt(zeilenPreis + "", 0, 3);
+    // Berechnung der Einzelpreise nach Art und Dauer
+    for (int i = 0; i <= 10; i++) {
+    	if (i == 3 || i == 7) {
+    		continue;
+    	}
+        anzahl = Integer.parseInt(auflistung.getValueAt(i, 2).toString());
+        preis = zooView.getTicketPriceForType(auflistung.getValueAt(i, 0).toString());
+        dauer = Integer.parseInt(auflistung.getValueAt(i, 1).toString());
+        zeilenPreis = salesController.preisBerechnung(anzahl, preis, dauer);
+        auflistung.setValueAt(zeilenPreis + "", i, 3);
+	}
+    double gesamtpreis = 0;
+    // Berechnung des Gesamtpreises unten rechts
+    for (int i = 0; i <= 10; i++) {
+    	
+    	if (i == 3 || i == 7) {
+    		continue;
+    	}
+    	gesamtpreis = gesamtpreis + Double.parseDouble((auflistung.getValueAt(i, 3).toString()));
+	}
+    auflistung.setValueAt(gesamtpreis + "", 12, 3);
+
    
     pnlNorth.add(scrollPane, BorderLayout.CENTER);
     pnlSouth.add(scrollPaneAuflistung, BorderLayout.CENTER);
-	pnlMain.add(pnlNorth, BorderLayout.NORTH);
-	pnlMain.add(trennLinie);
-	pnlMain.add(pnlSouth, BorderLayout.SOUTH);
-	
-	
+    pnlMain.add(pnlSouth, BorderLayout.SOUTH);
+	pnlMain.add(pnlNorth, BorderLayout.NORTH);	
 	
 	getContentPane().add(pnlMain);		
 	setVisible(true);    
 }
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	// Mengenberechnung der Tickets
+	public int calcAmounts(String ticketType, String dauer) {
+		int gesamtMenge = 0;
+	    // Schleife Mengenberechnung nach Art und Dauer
+	    for (int i = 0; i < ticketTable.getRowCount(); i++) {
+	    	String tempType = (ticketTable.getValueAt(i, 1)).toString();
+	    	String tempDauer = (ticketTable.getValueAt(i, 2)).toString();
+	    	if (tempType.equals(ticketType)) {
+				if (tempDauer.equals(dauer)) {
+					gesamtMenge = gesamtMenge + 1;
+				}
+			}
+		}
+		return gesamtMenge;		
 	}
 }

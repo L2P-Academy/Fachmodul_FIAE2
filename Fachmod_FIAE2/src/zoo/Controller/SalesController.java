@@ -15,7 +15,7 @@ public class SalesController {
 		this.ticketsystem = ticketsystem;
 	}
 
-	public void sellTicket(String ticketType, Double ticketPrice, Date ticketDate) {
+	public void sellTicket(String ticketType, Double ticketPrice, Date ticketDate) { 
 		ticketsystem.addTicket(ticketType, ticketPrice, ticketDate);
 	}
 	
