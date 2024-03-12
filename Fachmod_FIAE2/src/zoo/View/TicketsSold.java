@@ -201,9 +201,9 @@ public class TicketsSold extends JFrame implements ActionListener {
     
  // Daten für die Tabelle
     String[][] daten = {
-            {"Erwachsen", "2", "5", ""},
-            {"Erwachsen", "4", "3", ""},
-            {"Erwachsen", "6", "4", ""},
+            {"Erwachsene", "2", "5", ""},
+            {"Erwachsene", "4", "3", ""},
+            {"Erwachsene", "6", "4", ""},
             {"", "", "", ""},
             {"Kind", "2", "6", ""},
             {"Kind", "4", "9", ""},
@@ -238,16 +238,13 @@ public class TicketsSold extends JFrame implements ActionListener {
     ticketSystem = new Ticketsystem();
     salesController = new SalesController(ticketSystem);
    
-    
 	
-    anzahl = Integer.parseInt(auflistung.getValueAt(1, 3).toString());
-    preis = zooView.getTicketPriceForType(auflistung.getValueAt(1, 1).toString());
-    dauer = Integer.parseInt(auflistung.getValueAt(1, 2).toString());
-    
-    
-    zeilenPreis = Double.parseDouble(salesController.preisBerechnung(anzahl, preis, dauer));
-    
-    auflistung.setValueAt(zeilenPreis, 1, 4);
+    anzahl = Integer.parseInt(auflistung.getValueAt(0, 2).toString());
+    preis = zooView.getTicketPriceForType(auflistung.getValueAt(0, 0).toString());
+    dauer = Integer.parseInt(auflistung.getValueAt(0, 1).toString());
+        
+    zeilenPreis = salesController.preisBerechnung(anzahl, preis, dauer);    
+    auflistung.setValueAt(zeilenPreis + "", 0, 3);
    
     pnlNorth.add(scrollPane, BorderLayout.CENTER);
     pnlSouth.add(scrollPaneAuflistung, BorderLayout.CENTER);
