@@ -111,4 +111,25 @@
         <Date>Tue Mar 12 11:20:54 CET 2024</Date>
         <Price>20.0</Price>
     </Ticket>
+    <Ticket>
+        <TicketID>17</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>12.10.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>18</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>2</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
+    <Ticket>
+        <TicketID>19</TicketID>
+        <Type>Erwachsene</Type>
+        <Dauer>6</Dauer>
+        <Date>12.03.2024</Date>
+        <Price>20.0</Price>
+    </Ticket>
 </Tickets>
