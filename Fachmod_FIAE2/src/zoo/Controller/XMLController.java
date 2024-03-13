@@ -34,6 +34,7 @@ public class XMLController {
 	private String dateiPfad = "res/xml/TicketList.xml";
 	File fileExists = new File(dateiPfad);
 	private Ticketsystem ticketsystem;
+	private int zahlx;
 	
 	public XMLController (Ticketsystem ticketsystem) {
 		this.ticketsystem = ticketsystem;
